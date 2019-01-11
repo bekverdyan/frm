@@ -1,0 +1,64 @@
+<button id="createRoutingConfig" class="btsubmit btcreate k-modal-trigger" (click)="createRoutingConfig()">Create New Configuration</button>
+
+<div class="contentBox">
+    <div class="content">
+        <div class="filterTable">
+            <ul id="quickFilterList">
+                <li><h4>Quick Filter:</h4></li>
+                <li>
+                    <select>
+                        <option [ngValue]="domain.domainType" *ngFor="let domain of domains">
+                            {{domain.domainName}}
+                        </option>
+                    </select>
+                </li>
+
+                <li>
+                    <button (click)="resetTableFilters()" class="btcancel btunset">Unset Filter</button>
+                </li>
+            </ul>
+        </div>
+
+
+        <div *ngIf="listMode; else routingDetails">
+            <div id="dataTableResultList">
+                <div style="padding-top: 63px;">
+
+                    <table class="row-border hover table table-striped routingConfiguration"
+                           cellspacing="0" id="routingsTable">
+                        <thead>
+                        <tr>
+                            <th>Domain Name</th>
+                            <th>Module Name</th>
+                            <th>Routing ID</th>
+                            <th>Business ID</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr *ngFor="let routingConfig of availableRoutings" (click)="showRoutingDetails(routingConfig)">
+                            <td>{{routingConfig.routingConfDomainName}}</td>
+                            <td>{{routingConfig.routingConfRuleName}}</td>
+                            <td>{{routingConfig.routingConfId}}</td>
+                            <td>{{routingConfig.routingConfBusinessId}}</td>
+                            <td>{{routingConfig.routingConfActive}}</td>
+
+                            <td class="center">
+                                <p class="tableLable">{{routingConfig.routingActions}}</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <ng-template #routingDetails>
+            <router-outlet></router-outlet>
+        </ng-template>
+    </div>
+</div>
+

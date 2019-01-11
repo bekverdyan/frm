@@ -1,0 +1,50 @@
+<button id="createRoutingAction" class="btsubmit btcreate k-modal-trigger" (click)="createRoutingAction()">Create New Action</button>
+
+<div class="contentBox">
+    <div class="content">
+        <div class="filterTable">
+            <ul id="quickFilterList">
+                <li><h4>Quick Filter:</h4></li>
+
+                <li>
+                    <button (click)="resetTableFilters()" class="btcancel btunset">Unset Filter</button>
+                </li>
+            </ul>
+        </div>
+
+
+        <div *ngIf="listMode; else routingDetails">
+            <div id="dataTableResultList">
+                <div style="padding-top: 63px;">
+
+                    <table class="row-border hover table table-striped routingConfiguration"
+                           cellspacing="0" id="routingActionsTable">
+                        <thead>
+                        <tr>
+                            <th>Domain Name</th>
+                            <th>Name</th>
+                            <th>Destination</th>
+                            <th>Action Channel</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr *ngFor="let routingAction of availableRoutingActions" (click)="showRoutingActionDetails(routingAction)">
+                            <td>{{routingAction.domainName}}</td>
+                            <td>{{routingAction.name}}</td>
+                            <td>{{routingAction.destination}}</td>
+                            <td>{{routingAction.adActionChannelEntries}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <ng-template #routingDetails>
+            <router-outlet></router-outlet>
+        </ng-template>
+    </div>
+</div>
+

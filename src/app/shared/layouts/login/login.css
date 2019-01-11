@@ -1,0 +1,209 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+/*---------------------- Page Structure -----------------------*/
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    color: #000000;
+}
+
+#container.login {
+    display: block;
+}
+
+.login #wrapper {
+    background-color: #ffffff;
+    padding: 0;
+    width: 100%;
+}
+
+.login #wrapper #main {
+    margin-top: 3em;
+}
+
+.login header[role='banner'],
+.login #header {
+    width: 100%;
+    font-size: 1em;
+    padding: 5px;
+    background-color: #ffffff;
+    float: none;
+    margin-bottom: 2%;
+    display: block;
+}
+
+.login main {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+/*---------------------- General/ Defaults -----------------------*/
+
+.login h1 {
+    text-align: center;
+    padding: 5% 0 0;
+    color: #1e74ba;
+    font-weight: bold;
+    float: none;
+    min-height: 1em;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.login h2 {
+    padding-top: 0;
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #1e74ba;
+}
+
+/*---------------------- Form Component -----------------------*/
+
+.login form.k-login {
+    max-width: 360px;
+    margin: 0 auto;
+    padding-top: 1rem;
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 0.53);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 0.53);
+    box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 0.53);
+}
+.login form.k-login input {
+    font-family: 'Roboto', sans-serif;
+    outline: 0;
+    width: 100%;
+    background: #f6f6f6;
+    color: #555555;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #cccccc;
+    margin: 0 0 15px;
+    max-width: 100%;
+    padding: 0.6em 0.8em 0.6em 0.8em;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.login form.k-login input:active,
+.login form.k-login input:focus,
+.login form.k-login input:hover {
+    border-bottom: 2px solid #1e74ba;
+}
+
+.login form.k-login button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    outline: 0;
+    background: #1e74ba;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    float: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 1.2em;
+}
+.login form.k-login button:hover,
+.form button:active,
+.form button:focus {
+    background: #1a65a2;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.login form.k-login .message {
+    margin: 60px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+}
+.login form.k-login .message a {
+    color: #1e74ba;
+    text-decoration: none;
+}
+
+.login form.k-login fieldset {
+    background: #ffffff;
+    padding: 2em;
+}
+.login fieldset {
+    background: #ffffff;
+}
+.login legend {
+    color: #1e74ba;
+    background-color: transparent;
+    padding: 0.3em 1em 0.5em 0;
+    margin: 0;
+    border-bottom: 4px solid;
+    width: 100%;
+    text-align: left;
+}
+
+/*---------------------- Tab Component -----------------------*/
+
+.login .k-tabbed-data {
+    width: 20%;
+    margin: 0 auto;
+    -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    min-width: 320px;
+}
+
+.login div.k-tabbed-data > .content {
+    border: none;
+    -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    padding: 2rem;
+}
+
+.login ul.tabs {
+    background-color: #ffffff;
+}
+
+.login ul.tabs > li {
+    float: left;
+    width: 50%;
+    margin: 0;
+    text-align: center;
+}
+
+.login ul.tabs a,
+ul.tabs a:link,
+ul.tabs a:visited {
+    background-color: #ffffff;
+    color: #000000;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    padding: 1em;
+}
+.login ul.tabs a:hover,
+ul.tabs a:focus {
+    border-bottom: 4px solid #1e74ba;
+}
+
+.login ul.tabs a.active,
+ul.tabs a.active:link,
+ul.tabs a.active:visited {
+    background-color: #ffffff;
+    color: #1e74ba;
+    font-weight: bold;
+    border-bottom: 4px solid #1e74ba;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+.login ul.tabs a.active:hover,
+ul.tabs a.active:focus {
+    border-bottom: 4px solid #1e74ba;
+}

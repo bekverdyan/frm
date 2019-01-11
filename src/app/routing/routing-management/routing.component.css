@@ -1,0 +1,16 @@
+.selected-filter {
+    background: #cccccc !important;
+}
+
+td.center p {
+    margin: 0;
+    padding: 2px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+td.center p.tableLable {
+    border: 1px solid rgb(119, 119, 119);
+    background-color: rgb(119, 119, 119);
+    color: #ffffff;
+}

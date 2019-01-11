@@ -1,0 +1,23 @@
+<div id="confirmDeployModal" class="modal confirmModal">
+    <!-- Modal content -->
+    <div class="modal-window">
+        <div class="modal-head">
+            <h3>Confirmation</h3>
+            <span id="closeConfirmDeploy" class="close">&times;</span>
+        </div>
+
+        <div class="modal-content">
+            <p>Do you really want to undeploy this module?</p>
+            <div class="button-bar">
+                <ul class="k-actions">
+                    <li>
+                        <button id="BtnCancelDeploy" class="btcancel" (click)="cancel()">Cancel</button>
+                    </li>
+                    <li>
+                        <button id="BtnYesDeploy" class="btsubmit btsavedeploy" (click)="unDeploy()">Undeploy</button>
+                    </li>
+                </ul>
+            </div><!-- button-bar -->
+        </div>
+    </div>
+</div>

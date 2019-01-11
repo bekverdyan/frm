@@ -1,0 +1,102 @@
+<div id="createRuleModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-window">
+        <div class="modal-head">
+            <h3>Create new Module</h3>
+            <button aria-label="Close" data-dismiss="modal" class="close" type="button"
+                    (click)="activeModal.dismiss('closed')">
+                <span aria-hidden="true">x</span>
+            </button>
+        </div>
+
+        <div class="modal-content">
+
+            <div [ngSwitch]="pmoduleCreated">
+                <div *ngSwitchCase="false">
+                    <form role="form" (ngSubmit)="saveRule()">
+
+                        <p>
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" placeholder="name" [(ngModel)]="name" required>
+                        </p>
+
+                        <p>
+                            <label for="usage">Usage</label>
+                            <select [(ngModel)]="usage" name="usage" id="usage">
+                                <option value="DP">Data preparation</option>
+                                <option value="DH">Data historization</option>
+                                <option value="DA">Data aggregate</option>
+                                <option value="RL">Rule</option>
+                                <option value="MD">Model</option>
+                                <option value="JB">Job</option>
+                                <option value="RC">Recovery</option>
+                            </select>
+                        </p>
+
+                        <p>
+                            <label for="type">Type</label>
+                            <select [(ngModel)]="type" name="type" id="type">
+                                <option value="PYTHON">PYTHON</option>
+                                <option value="Java">Java</option>
+                                <option value="PMML">PMML</option>
+                            </select>
+                        </p>
+
+                        <p class="large">
+                            <label for="usageDescription">Usage</label>
+                            <textarea [(ngModel)]="usageDescription" rows="10" cols="1" id="usageDescription"
+                                      name="usageDescription"></textarea>
+                        </p>
+
+                        <div class="button-bar">
+                            <ul class="k-actions">
+                                <li>
+                                    <button (click)="cancel()" id="buttonCancel" class="btcancel">Cancel</button>
+                                </li>
+                                <li>
+                                    <button type="submit" id="buttonNext" class="btsubmit btnext">Next</button>
+                                </li>
+                            </ul>
+                        </div><!-- button-bar -->
+                    </form>
+                </div>
+
+                <div *ngSwitchCase="true">
+                    <form role="form" (ngSubmit)="savePmoduleVersion(false)">
+
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <span class="btn btn-default btn-file"><span>Upload file</span>
+                                    <input type="file" (change)="fileChanged($event)" name="content"
+                                           id="content">/</span>
+
+                            <span class="fileinput-filename"></span><span class="fileinput-new">{{getFileNameDescription()}}</span>
+                        </div>
+
+                        <p class="large">
+                            <label for="versionDescription">Description</label>
+                            <textarea [(ngModel)]="versionDescription" rows="10" cols="1"
+                                      id="versionDescription"
+                                      name="versionDescription"></textarea>
+                        </p>
+
+                        <div class="button-bar">
+                            <ul class="k-actions">
+                                <li>
+                                    <button id="BtnCancelTwo" class="btcancel" (click)="cancel()">Cancel</button>
+                                </li>
+                                <li>
+                                    <button type="submit" id="BtnSaveRule" class="btsubmit btsavedeploy">Submit</button>
+                                </li>
+                                <li>
+                                    <button type="submit" id="BtnSaveDeploy" class="btsubmit btnext">Submit & Deploy
+                                    </button>
+                                </li>
+                            </ul>
+                        </div><!-- button-bar -->
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

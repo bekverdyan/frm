@@ -1,0 +1,153 @@
+<div id="deployModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-window">
+        <div class="modal-head">
+            <h3>Deploy</h3>
+            <span id="closeDeploy" class="close" (click)="cancel()">&times;</span>
+        </div>
+
+        <div class="modal-content">
+            <h4>Details</h4>
+            <p>
+                <label for="">Usage</label>
+                <input type="text" name="Usage" id="usage" value="Usage" placeholder="Rule">
+            </p>
+            <p>
+                <label for="">Domain</label>
+                <select id="domain">
+                    <option value="ac">AC</option>
+                    <option value="ac">ACPMI</option>
+                    <option value="ac">ACPMI</option>
+                </select>
+            </p>
+            <p>
+                <label for="">Type</label>
+                <select id="type">
+                    <option value="type1">Python</option>
+                    <option value="type2">Java</option>
+                    <option value="type3">PMML</option>
+                </select>
+            </p>
+            <h4>Version</h4>
+            <p>
+                <label for="">Number</label>
+                <input class="disabled" type="text" name="number" id="number" placeholder="1" readonly>
+            </p>
+            <p>
+                <label for="">Created on</label>
+                <input class="disabled" type="date" name="created" id="created" placeholder="2017-11-30 17:30" readonly>
+            </p>
+            <p>
+                <label for="">Created by</label>
+                <input class="disabled" type="text" name="createdby" id="createdby" placeholder="User Name" readonly>
+            </p>
+            <p class="large">
+                <label for="">Description</label>
+                <textarea rows="5" cols="1">Please insert a textual comment attached to the module version:</textarea>
+            </p>
+            <h4>Execution options</h4>
+            <p>
+                <label for="">Enabled</label>
+                <input class="checkbox" type="checkbox" name="enabled" value="enabled" checked>
+            </p>
+            <p>
+                <label for="">Execution flow</label>
+                <select id="execution_flow">
+                    <option value="flow1">MAIN</option>
+                    <option value="flow2">CLEARING</option>
+                    <option value="flow3">MSTDATA</option>
+                    <option value="flow4">JOBS</option>
+                </select>
+            </p>
+            <p>
+                <label for="" class="mandatory">Execution detached</label>
+                <select id="execution_detached">
+                    <option value="detached1">OFF</option>
+                    <option value="detached2">PARTIAL</option>
+                    <option value="detached3">FULL</option>
+                    <option value="detached4">BLOCKING</option>
+                </select>
+            </p>
+            <p>
+                <label for="">Exectuion scheduling</label>
+                <input class="radio_button" type="radio" name="scheduling1" value="none" checked> None<br>
+                <input class="radio_button" type="radio" name="scheduling1" value="none"> Time expression
+                <input class="radio_button_input" type="time" name="time" id="time_exp" value="expression" min="00:00" max="24:59">
+            </p>
+            <p>
+                <label for="">Rank</label>
+                <input type="number" name="rank" id="rank" placeholder="50">
+            </p>
+            <p>
+                <label for="">Start date</label>
+                <input type="date" name="start_date" id="start_dat" value="start_dat" placeholder="">
+            </p>
+            <p>
+                <label for="">End date</label>
+                <input type="date" name="end_dat" id="end_dat" value="end_dat" placeholder="">
+            </p>
+            <p>
+                <label for="">Tracing enabled</label>
+                <input class="checkbox" type="checkbox" name="tracing" value="tracing">
+            </p>
+
+            <h4>Alert dispatching options</h4>
+            <p>
+                <label for="">Shadowed alerting</label>
+                <select id="shadowed_alerting">
+                    <option value="alert1">OFF</option>
+                    <option value="alert2">ON</option>
+                </select>
+            </p>
+            <p>
+                <label for="">Blocking rule</label>
+                <select id="blocking_rule">
+                    <option value="blocking1">OFF</option>
+                    <option value="blocking2">ON</option>
+                </select>
+            </p>
+            <h4>Parameters</h4>
+            <hr>
+            <p>
+                <label for="">Name</label>
+                <input class="input_button" type="text" name="name" id="name" value="Name" placeholder="">
+                <button id="setDeployParameter" class="btsubmit inputButton">Set</button>
+            </p>
+            <p>
+                <label for="">Value</label>
+                <input class="input_button" type="text" name="value" id="value" value="Value" placeholder="">
+                <button id="unsetDeployParameter" class="btsubmit inputButton">Unset</button>
+            </p>
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>output_directory</td>
+                    <td>/var/spool</td>
+                </tr>
+                <tr>
+                    <td>option 1</td>
+                    <td>value 1</td>
+                </tr>
+                <tr>
+                    <td>option 2</td>
+                    <td>value 2</td>
+                </tr>
+                </tbody>
+
+            </table>
+
+            <div class="button-bar">
+                <ul class="k-actions">
+                    <li><button (click)="cancel()" id="BtnCancelRedeploy" class="btcancel">Cancel</button></li>
+                    <li><button id="BtnSaveRedeploy" class="btsubmit btsavedeploy">Deploy</button></li>
+                </ul>
+            </div><!-- button-bar -->
+        </div>
+    </div>
+</div>
