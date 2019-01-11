@@ -2,8 +2,8 @@ import { AfterViewInit, Component, ElementRef, Renderer } from '@angular/core';
 import { JhiEventManager } from 'ng-jhipster';
 import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { RulesRepository } from 'app/rules/dto/rules-repository';
-import { NavigationService } from 'app/shared/navigation/navigation.service';
+import { RulesRepository } from '../dto/rules-repository';
+import { NavigationService } from 'src/app/shared/navigation/navigation.service';
 
 @Component({
     selector: 'jhi-rule',

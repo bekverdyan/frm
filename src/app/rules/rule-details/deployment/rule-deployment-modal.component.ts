@@ -1,11 +1,9 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RulesRepository } from 'app/rules/dto/rules-repository';
-import { RuleEntry } from 'app/rules';
-import { Location } from '@angular/common';
-import { KawaAdapterService } from 'app/shared/layouts/kawa/kawa-adapter.service';
-import { RuleContext } from 'app/rules/model/rule-context';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { KawaAdapterService } from 'src/app/shared/layouts/kawa/kawa-adapter.service';
+import { RuleContext, RuleEntry, RulesRepository } from '../..';
 
 @Component({
     selector: 'jhi-rule-deployment',

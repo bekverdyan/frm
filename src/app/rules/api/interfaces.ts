@@ -1,8 +1,8 @@
-import { RuleEntry } from 'app/rules/model/rule-entry';
 import { Observable } from 'rxjs';
-import { DomainEntry } from 'app/rules/model/domain-entry';
 import { HttpResponse } from '@angular/common/http';
-import { RuleActionEntry, RuleVersionEntry } from 'app/rules';
+import { RuleEntry } from '../model/rule-entry';
+import { DomainEntry } from '../model/domain-entry';
+import { RuleVersionEntry, RuleActionEntry } from '..';
 
 export interface FrmRulesAware {
     getRule(id: number): Observable<RuleEntry>;

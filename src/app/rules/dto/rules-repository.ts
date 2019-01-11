@@ -1,9 +1,9 @@
-import { FrmRulesAware, RuleActionEntry, RuleEntry, RuleVersionEntry } from 'app/rules';
+import { FrmRulesAware, RuleActionEntry, RuleEntry, RuleVersionEntry } from '..';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
-import { SERVER_API_URL } from 'app/app.constants';
-import { DomainEntry } from 'app/rules/model/domain-entry';
+import { DomainEntry } from '../model/domain-entry';
+import { SERVER_API_URL } from 'src/app/app.constants';
 
 @Injectable({ providedIn: 'root' })
 export class RulesRepository implements FrmRulesAware {

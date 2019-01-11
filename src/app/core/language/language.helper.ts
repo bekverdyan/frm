@@ -3,8 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRouteSnapshot } from '@angular/router';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-
-import { LANGUAGES } from 'app/core/language/language.constants';
+import { LANGUAGES } from './language.constants';
 
 @Injectable({ providedIn: 'root' })
 export class JhiLanguageHelper {

@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-import { SERVER_API_URL } from 'app/app.constants';
+import { SERVER_API_URL } from 'src/app/app.constants';
 
 @Injectable({ providedIn: 'root' })
 export class AuthServerProvider {

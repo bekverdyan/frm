@@ -77,6 +77,7 @@ export class KawaAdapterService {
         // workaround over dataTable initialisation
         return new Promise(function (resolve, reject) {
             window.setTimeout(function () {
+                // @ts-ignore
                 const dt = $('#' + tableId).DataTable({
                     // @ts-ignore
                     select: true,
@@ -101,6 +102,7 @@ export class KawaAdapterService {
 
         if (targetTable && targetTable !== undefined) {
             // targetTable.DataTable().clear();
+            // @ts-ignore
             targetTable.DataTable().destroy();
         }
     }
