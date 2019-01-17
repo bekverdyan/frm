@@ -13,7 +13,7 @@ module.exports = {
     entry: {
         vendor: './src/vendor.ts',
         polyfills: './src/polyfills.ts',
-        main: isDev ? './src/main.ts' : './src/main.aot.ts',
+        main: './src/main.ts',
         global: './src/assets/css/global.css'
     },
 
@@ -50,6 +50,15 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(
             helpers.root('dist'), { root: helpers.root(), verbose: true }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: `'${process.env.NODE_ENV}'`,
+                BUILD_TIMESTAMP: `'${new Date().getTime()}'`,
+                // VERSION: `'${utils.parseVersion()}'`,
+                DEBUG_INFO_ENABLED: isDev,
+                SERVER_API_URL: `''`
+            }
+        }),
         new CopyWebpackPlugin([
             { from: './src/assets/', to: 'assets' },
             { from: './src/favicon.ico', to: 'favicon.ico' }

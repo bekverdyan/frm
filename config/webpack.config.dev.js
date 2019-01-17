@@ -10,6 +10,27 @@ module.exports = webpackMerge(commonConfig, {
 
     devtool: 'cheap-module-eval-source-map',
 
+    devServer: {
+        // contentBase: './target/www',
+        proxy: [{
+            context: [
+                /* jhipster-needle-add-entity-to-webpack - JHipster will add entity api paths here */
+                '/api',
+                '/management',
+                '/v2/api-docs',
+                '/h2-console',
+                '/auth'
+            ],
+            target: 'http://127.0.0.1:8080',
+            secure: false,
+            headers: { host: 'localhost:9000' }
+        }],
+        // stats: options.stats,
+        watchOptions: {
+            ignored: /node_modules/
+        }
+    },
+
     output: {
         path: helpers.root('dist'),
         publicPath: '/',
