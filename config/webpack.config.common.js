@@ -24,7 +24,7 @@ module.exports = {
                 loader: 'html-loader'
             },
             {
-                test: /\.(scss|sass)$/,
+                test: /\.(css|scss|sass)$/,
                 use: [
                     'to-string-loader',
                     { loader: 'css-loader', options: { sourceMap: true } },
