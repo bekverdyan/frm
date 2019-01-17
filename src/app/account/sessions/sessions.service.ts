@@ -3,7 +3,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Session } from './session.model';
-import { SERVER_API_URL } from 'src/app/app.constants';
+import { SERVER_API_URL } from '../../app.constants';
 
 @Injectable({ providedIn: 'root' })
 export class SessionsService {

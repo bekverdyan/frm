@@ -22,6 +22,6 @@ describe('RulesRepository', () => {
     });
 
     it('#getRule should return rule', () => {
-        expect(repository.getRule('')).toBeInstanceOf(RuleEntry);
+        expect(repository.getRule('')).toBeTruthy();
     });
 });

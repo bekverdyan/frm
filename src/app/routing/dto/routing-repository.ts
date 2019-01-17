@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FrmRoutingConfigsAware } from '../api/interfaces';
 import { RoutingEntry } from '../model/routing-entry';
-import { SERVER_API_URL } from 'src/app/app.constants';
+import { SERVER_API_URL } from '../../app.constants';
 import { ActionEntry } from '..';
 
 @Injectable({ providedIn: 'root' })

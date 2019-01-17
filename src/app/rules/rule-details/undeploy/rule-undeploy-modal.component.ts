@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { KawaAdapterService } from 'src/app/shared/layouts/kawa/kawa-adapter.service';
+import { KawaAdapterService } from '../../../shared/layouts/kawa/kawa-adapter.service';
 import { RuleContext, RuleEntry, RulesRepository } from '../..';
 
 @Component({

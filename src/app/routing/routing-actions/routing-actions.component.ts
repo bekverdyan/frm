@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { ActionEntry, ActionContext } from '..';
 import { RoutingRepository } from '../dto/routing-repository';
-import { NavigationService } from 'src/app/shared/navigation/navigation.service';
-import { KawaAdapterService } from 'src/app/shared/layouts/kawa/kawa-adapter.service';
+import { NavigationService } from '../../shared/navigation/navigation.service';
+import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.service';
 
 @Component({
     selector: 'jhi-routing-actions',

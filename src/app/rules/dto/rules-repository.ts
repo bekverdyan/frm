@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { DomainEntry } from '../model/domain-entry';
-import { SERVER_API_URL } from 'src/app/app.constants';
+import { SERVER_API_URL } from '../../app.constants';
 
 @Injectable({ providedIn: 'root' })
 export class RulesRepository implements FrmRulesAware {

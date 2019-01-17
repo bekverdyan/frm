@@ -5,9 +5,9 @@ import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { RoutingEntry, RoutingContext } from '..';
 import { DomainEntry } from 'src/app/rules/model/domain-entry';
 import { RoutingRepository } from '../dto/routing-repository';
-import { NavigationService } from 'src/app/shared/navigation/navigation.service';
-import { RulesRepository } from 'src/app/rules/dto/rules-repository';
-import { KawaAdapterService } from 'src/app/shared/layouts/kawa/kawa-adapter.service';
+import { NavigationService } from '../../shared/navigation/navigation.service';
+import { RulesRepository } from '../../rules/dto/rules-repository';
+import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.service';
 
 @Component({
     selector: 'jhi-routing-management',
