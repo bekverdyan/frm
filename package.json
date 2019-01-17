@@ -86,6 +86,8 @@
     "node-sass": "~4.9",
     "optimize-css-assets-webpack-plugin": "~5.0",
     "sass-loader": "~7.1",
+    "style-loader": "0.20.3",
+    "file-loader": "1.1.11",
     "to-string-loader": "~1.1",
     "uglifyjs-webpack-plugin": "~2.0",
     "webpack": "~4.23",

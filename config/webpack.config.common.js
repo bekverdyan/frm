@@ -13,7 +13,8 @@ module.exports = {
     entry: {
         vendor: './src/vendor.ts',
         polyfills: './src/polyfills.ts',
-        main: isDev ? './src/main.ts' : './src/main.aot.ts'
+        main: isDev ? './src/main.ts' : './src/main.aot.ts',
+        global: './src/assets/css/global.css'
     },
 
     resolve: {
@@ -31,13 +32,17 @@ module.exports = {
                 loader: 'html-loader'
             },
             {
-                test: /\.(css|scss|sass)$/,
-                use: [
-                    'to-string-loader',
-                    { loader: 'css-loader', options: { sourceMap: true } },
-                    { loader: 'sass-loader', options: { sourceMap: true } }
-                ],
-                include: helpers.root('src', 'app')
+                test: /\.(jpe?g|png|gif|svg|woff2?|ttf|eot)$/i,
+                loaders: ['file-loader?hash=sha512&digest=hex&name=content/[hash].[ext]']
+            },
+            {
+                test: /\.css$/,
+                loaders: ['to-string-loader', 'css-loader'],
+                exclude: /(vendor\.css|global\.css)/
+            },
+            {
+                test: /(vendor\.css|global\.css)/,
+                loaders: ['style-loader', 'css-loader']
             }
         ]
     },
