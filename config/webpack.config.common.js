@@ -1,7 +1,10 @@
 'use strict';
 
-const CleanWebpackPlugin   = require('clean-webpack-plugin');
-const HtmlWebpackPlugin    = require('html-webpack-plugin');
+const webpack = require('webpack');
+const CleanWebpackPlugin     = require('clean-webpack-plugin');
+const CopyWebpackPlugin      = require('copy-webpack-plugin');
+const HtmlWebpackPlugin      = require('html-webpack-plugin');
+const MergeJsonWebpackPlugin = require("merge-jsons-webpack-plugin");
 
 const helpers              = require('./helpers');
 const isDev                = process.env.NODE_ENV !== 'production';
@@ -19,6 +22,10 @@ module.exports = {
 
     module: {
         rules: [
+            {
+                test: /bootstrap\/dist\/js\/umd\//,
+                loader: 'imports-loader?jQuery=jquery'
+            },
             {
                 test: /\.html$/,
                 loader: 'html-loader'
@@ -38,7 +45,22 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(
             helpers.root('dist'), { root: helpers.root(), verbose: true }),
-
+        new CopyWebpackPlugin([
+            { from: './src/assets/', to: 'assets' },
+            { from: './src/favicon.ico', to: 'favicon.ico' }
+        ]),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }),
+        new MergeJsonWebpackPlugin({
+            output: {
+                groupBy: [
+                    { pattern: "./src/i18n/en/*.json", fileName: "./i18n/en.json" },
+                    { pattern: "./src/i18n/de/*.json", fileName: "./i18n/de.json" }
+                ]
+            }
+        }),
         new HtmlWebpackPlugin({
             template: 'src/index.html'
         })
