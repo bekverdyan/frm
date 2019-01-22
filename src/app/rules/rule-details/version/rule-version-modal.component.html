@@ -1,0 +1,42 @@
+<div id="newVersionModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-window">
+        <div class="modal-head">
+            <h3>Create new version</h3>
+            <span id="closeNewVersion" class="close" (click)="cancel()">&times;</span>
+        </div>
+
+        <div class="modal-content">
+
+            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <span class="btn btn-default btn-file"><span>Upload file</span>
+                                    <input type="file" (change)="fileChanged($event)" name="content"
+                                           id="content">/</span>
+                <span class="fileinput-filename"></span><span class="fileinput-new">{{getFileNameDescription()}}</span>
+            </div>
+
+            <p class="large">
+                <label for="versionDescription">Description</label>
+                <textarea [(ngModel)]="versionDescription" rows="10" cols="1"
+                          id="versionDescription"
+                          name="versionDescription"></textarea>
+            </p>
+
+            <div class="button-bar">
+                <ul class="k-actions">
+                    <li>
+                        <button id="BtnCancelVersion" class="btcancel" (click)="cancel()">Cancel</button>
+                    </li>
+                    <li>
+                        <button id="BtnSaveVersion" class="btsubmit btsubmit" (click)="submit(false)">Submit</button>
+                    </li>
+                    <li>
+                        <button id="BtnDeployVersion" class="btsubmit btsubmitdeploy" (click)="submit(true)">Submit &
+                            Deploy
+                        </button>
+                    </li>
+                </ul>
+            </div><!-- button-bar -->
+        </div>
+    </div>
+</div>

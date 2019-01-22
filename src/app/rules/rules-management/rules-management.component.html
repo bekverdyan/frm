@@ -1,0 +1,75 @@
+<button id="createRule" class="btsubmit btcreate k-modal-trigger" (click)="createModule()">Create New Rule</button>
+
+<div class="contentBox">
+    <div class="content">
+        <div class="filterTable">
+            <ul id="quickFilterList">
+                <li><h4>Quick Filter:</h4></li>
+                <li>
+                    <a [ngClass]="usageFilter === 'Rule' ? 'selected-filter' : ''" (click)="filterTableByUsage('Rule')">Rule</a>
+                </li>
+                <li>
+                    <a [ngClass]="usageFilter === 'Job' ? 'selected-filter' : ''" (click)="filterTableByUsage('Job')">Job</a>
+                </li>
+                <li>
+                    <a [ngClass]="usageFilter === 'Models' ? 'selected-filter' : ''"
+                       (click)="filterTableByUsage('Models')">Models</a>
+                </li>
+                <li>
+                    <select>
+                        <option [ngValue]="domain.domainType" *ngFor="let domain of domains">
+                            {{domain.domainName}}
+                        </option>
+                    </select>
+                </li>
+                <li>
+                    <button (click)="resetTableFilters()" class="btcancel btunset">Unset Filter</button>
+                </li>
+            </ul>
+        </div>
+
+
+        <div *ngIf="listMode; else ruleDetails">
+            <div id="dataTableResultList">
+                <div style="padding-top: 63px;">
+
+                    <table class="row-border hover table table-striped"
+                           cellspacing="0" id="rulesTable">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th style="width: 800px;">Description/Summary</th>
+                            <th>Domain</th>
+                            <th style="width: 100px;">Usage</th>
+                            <th style="width: 130px;">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let rule of availableRules" (click)="showRuleDetails(rule)">
+                            <td>{{rule.pmoduleName}}</td>
+                            <td>{{rule.pmoduleDescription}}</td>
+                            <td>{{ rule.deploymentsDomains }}</td>
+                            <td class="center">
+                                <p class="tableLabel">
+                                    {{ rule.pmoduleUsage | expand }}
+                                </p>
+                            </td>
+                            <td class="center">
+                                <p class="{{getRuleStatusStyle(rule)}}">
+                                    {{ rule.pmoduleStatus }}
+                                </p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <ng-template #ruleDetails>
+            <router-outlet></router-outlet>
+        </ng-template>
+    </div>
+</div>
+

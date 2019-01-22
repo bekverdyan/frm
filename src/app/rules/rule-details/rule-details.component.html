@@ -1,0 +1,130 @@
+<div class="splitPanel">
+    <div class="panel-container">
+
+        <div class="panel-left">
+            <table class="k-data-table">
+                <thead>
+                <tr>
+                    <th>Module Name</th>
+                    <th class="descripten">Description/Summary</th>
+                    <th class="domain">Domain</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr class="{{searchEntry.isSelected ? 'highlightedEntry' :''}} gradeA"
+                    *ngFor="let searchEntry of getFilteredRuleEntries()">
+                    <td>{{searchEntry.pmoduleName}}</td>
+                    <td class="descripten">
+                        {{searchEntry.pmoduleDescription}}
+                    </td>
+                    <td class="domain">ACPMI</td>
+                    <td class="center">label</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="backIcon">
+                <a (click)="goBack()"><i class="fas fa-arrow-alt-circle-left"></i></a>
+            </div>
+        </div><!-- split panel-left -->
+
+        <div class="splitter"></div>
+
+        <div id="splitRuleEditor" class="panel-right">
+            <div class="panelRightHeader">
+                <h3>{{getTargetModule().pmoduleName}}</h3>
+                <div id="hamburgerMenuIcon"><span><i class="fas fa-bars"></i></span></div>
+                <div id="hamburgerMenu">
+                    <ul>
+                        <li (click)="openCreateVersionModal()" id="newVersion">New Version</li>
+                        <li (click)="openDeployModal()" id="redeploy">Redeploy</li>
+                        <li id="undeploy" (click)="openUndeployModal()">Undeploy</li>
+                        <li><a href="routingConfiguration_filteredList.html">Routing Configuration</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="k-tabbed-data">
+                <ul class="tabs">
+                    <li><a href="#panel0">Details</a></li>
+                    <li><a href="#panel1">History</a></li>
+                    <li><a href="#panel2">Deployment</a></li>
+                </ul>
+
+                <section id="panel0" class="content">
+                    <div class="panelDisplayGrid">
+                        <div class="leftDataContainer">
+                            <p>
+                                <label>Usage:</label>
+                                <input type="text" name="usage" value="{{getTargetModule().pmoduleUsage}}"
+                                       class="disabled" disabled>
+                            </p>
+                            <p>
+                                <label>Type:</label>
+                                <input type="text" name="type" value="{{getTargetModule().pmoduleType}}"
+                                       class="disabled" disabled>
+                            </p>
+                            <p>
+                                <label>Description:</label>
+                                <textarea>{{getTargetModule().pmoduleDescription}}</textarea>
+                            </p>
+                        </div><!-- leftDataContainer -->
+                        <div class="rightDataContainer">
+                            <h4>Versions</h4>
+                            <table class="deployedVersion">
+                                <thead>
+                                <th>Version</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let version of ruleVersions" class="{{getVersionRowClass(version)}}">
+                                    <td>{{version.pmoduleVersionNumber}}</td>
+                                    <td>{{version.createdDateAsText}}</td>
+                                    <td>{{version.createdTimeAsText}}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="extendVersion"><a href="#">&bull; &bull; &bull;</a></td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- rightDataContainer -->
+                        <div class="contentDataContainer">
+                            <h4>Content</h4>
+                            <textarea disabled>{{showVersionArtefactContent}}</textarea>
+                        </div><!-- contentDataContainer -->
+                    </div>
+                </section>
+                <section id="panel1" class="content">
+                    <table>
+                        <thead>
+                        <th>User</th>
+                        <th>Action</th>
+                        <th>Date and Time</th>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let action of ruleActions">
+                            <td>{{action.createdBy}}</td>
+                            <td>{{action.message}}</td>
+                            <td>{{action.created}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </section>
+                <section id="panel2" class="content">
+
+                    <h3>Title for Section 2</h3>
+                    <p><strong>Content for Tab 2</strong> !</p>
+                    <p><a href="#">With a link for keyboard test</a></p>
+
+                </section>
+            </div>
+
+
+            <!-- <a class="closeSplit">x</a> -->
+        </div><!-- split panel-right -->
+    </div><!-- panel-container -->
+</div>

@@ -1,0 +1,1575 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url('../componentCSS/app-root.component.css');
+/*@import url('../componentCSS/landing.component.css');*/
+@import url('../componentCSS/header.component.css');
+
+/* CSS index:
+		THEME'S DEFAULT VALUES
+		PAGE STRUCTURE
+		GENERALS
+		HEADER USER INFO
+	MENUS / NAVIGATIONS
+		MAIN NAV - PRIMARY
+		SUB NAVIGATION - SECONDARY
+		HAMBURGER MENU
+	BUTTON
+	TABLE COMPONENT
+		LABLE in TABLE
+	LIST COMPONENT
+		VERSION LIST
+		DESCRIPTION LISTS	
+	QUICK FILTER COMPONENT
+	FORM 
+		INPUTS
+		TEXTAREA
+		FORM SPECIFICS
+			LABELS/ LINK LABELS
+	PANEL COMPONENTS
+		GENERAL PANEL
+		SPLIT PANEL
+	TABS COMPONENTS
+	MODAL WINDOW
+	SPECIAL PAGE COMPONENTS
+		NEW CHANNEL
+		ASSIGN ACTION
+	FONT ICONS / FONT AWESOM 
+*/
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* -------------------------------------------------------------------------------------------*/
+/* ---------------   PAGE STRUCTURE   --------------------------------------------------------------*/
+/* -------------------------------------------------------------------------------------------*/
+
+html {
+    height: 100vh;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    background-color: #ffffff;
+    color: #555555;
+}
+
+div.contentBox {
+    /* background-color: #ffffff;*/
+    padding: 5px 0px 15px 0px;
+    width: 100%;
+    float: left;
+    min-width: 1000px;
+}
+
+/* -------------------------------------------------------------------------------------------*/
+/* ---------------   Generals   --------------------------------------------------------------*/
+/* -------------------------------------------------------------------------------------------*/
+a,
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+    color: #000000;
+}
+
+ul,
+ol {
+    padding-left: 0;
+}
+
+li {
+    list-style: none;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    padding: 37px 0;
+}
+
+p {
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+p.large {
+    width: 100%;
+}
+
+p.medium {
+    width: 50%;
+}
+
+p.small {
+    width: 30%;
+}
+
+label {
+    font-size: 0.85rem;
+    font-weight: normal;
+    width: 100%;
+    float: left;
+    min-width: 6rem;
+    padding-top: 0.3rem;
+    margin-bottom: 0.2em;
+}
+
+.active {
+    font-weight: bold;
+    color: #0066a1;
+}
+
+/* ----- HEADLINES ----- */
+
+h2 {
+    color: #333333;
+    font: 1rem open_sansbold, 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    width: auto;
+    float: left;
+    white-space: nowrap;
+}
+
+h3 {
+    color: #1e74ba;
+    font: 1rem open_sansbold, 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    width: auto;
+    float: left;
+    width: 100%;
+}
+
+div.panel-right h3 {
+    width: 80%;
+    float: left;
+}
+
+.panel-right .panelRightHeader h3 + div svg {
+    width: auto;
+    float: right;
+    color: #ffffff;
+    margin: 0.8rem 1rem 5px 5px;
+    cursor: pointer;
+}
+
+h4 {
+    color: #1e74ba;
+    font: 0.95rem open_sansbold, 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    padding: 10px 0;
+    margin: 0;
+    float: left;
+    width: 100%;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.contentDataContainer h4 {
+    margin-top: 10px;
+    padding-bottom: 0;
+}
+
+h6 {
+    color: #333333;
+    font-size: 0.9em;
+    text-decoration: underline;
+}
+
+.panelRightHeader {
+    background-color: #444e60;
+    float: left;
+    width: 100%;
+}
+
+.panelRightHeader h3 {
+    color: #fff;
+    padding: 0.8rem 10px 10px 1rem;
+    margin-bottom: 0;
+}
+
+/* -------------------------------------------------------------------------------------------*/
+/* ---------------   MENUS / NAVIGATIONS   ---------------------------------------------------*/
+/* -------------------------------------------------------------------------------------------*/
+
+/* ------- HAMBURGER MENU ----------------*/
+/* ---------------------------------------*/
+
+#hamburgerMenu {
+    display: none;
+    position: absolute;
+    top: 20.5%;
+    right: 5.5%;
+    background-color: #ffffff;
+    width: auto;
+    padding: 5px 0;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 0.53);
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 0.53);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 0.53);
+    z-index: 1;
+}
+
+#hamburgerMenu ul li {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 0.95em;
+}
+#hamburgerMenu ul li:hover {
+    background-color: #efefef;
+}
+
+#hamburgerMenu a,
+#hamburgerMenu a:link,
+#hamburgerMenu a:visited,
+#hamburgerMenu a:hover,
+#hamburgerMenu a:focus,
+#hamburgerMenu a:active {
+    text-decoration: none;
+}
+
+#hamburgerMenuIcon {
+    width: 50px;
+    float: right;
+}
+
+/* -------------------------------------------------------------------------------------------*/
+/* ---------------   BUTTON   ----------------------------------------------------------------*/
+/* -------------------------------------------------------------------------------------------*/
+
+.button-bar {
+    float: left;
+    width: 100%;
+}
+
+button {
+    padding: 8px 17px;
+    color: #ffffff;
+    border: none;
+    -webkit-box-shadow: 1px 1px 5px 1px rgba(170, 170, 170, 0.52);
+    -moz-box-shadow: 1px 1px 5px 1px rgba(170, 170, 170, 0.52);
+    box-shadow: 1px 1px 5px 1px rgba(170, 170, 170, 0.52);
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+button.btcancel {
+    background-color: #555555;
+}
+button.btcancel:hover {
+    background-color: #444444;
+}
+
+button.btsubmit {
+    background-color: #1e74ba;
+}
+button.btsubmit:hover {
+    background-color: #1a65a2;
+}
+
+button.btsubmit.btcreate {
+    background-color: #1e74ba;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 15px;
+    float: left;
+    text-decoration: none;
+    border: none;
+}
+button.btsubmit.btcreate:hover {
+    background-color: #1a65a2;
+}
+/*
+button.btcancel.btunset {
+    background-color: rgba(119,119,119);
+}
+button.btcancel.btunset:hover {
+    background-color: rgb(105, 100, 100);
+}
+*/
+
+/* -------------------------------------------------------------------------------------------*/
+/* ---------------   TABLE COMPONENT   ------------------------------------------------------*/
+/* -------------------------------------------------------------------------------------------*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    height: auto;
+    float: left;
+    margin: 1em 0;
+    border-top: none;
+}
+table.k-data-table {
+    border-top: none;
+}
+
+tbody {
+    cursor: pointer;
+}
+th,
+td {
+    font-size: 0.75rem;
+    text-align: left;
+    padding: 5px 8px;
+    border-bottom: 1px solid #bfbfbf;
+}
+th {
+    white-space: nowrap;
+    padding: 10px 3px 10px 22px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    text-align: left;
+    color: #1e74ba;
+    background-color: transparent;
+    border-top: none;
+    border-bottom: 5px solid #1e74ba;
+}
+th.sorting {
+    background: #ffffff url(../img/k-theme0/sort_both.png) left no-repeat;
+    cursor: pointer;
+}
+th.sorting_asc {
+    background: #ffffff url(../img/k-theme0/sort_asc.png) left no-repeat;
+    cursor: pointer;
+}
+th.sorting_desc {
+    background: #ffffff url(../img/k-theme0/sort_desc.png) left no-repeat;
+    cursor: pointer;
+}
+tr.highlightedEntry {
+    background-color: #1e74ba;
+    color: #ffffff;
+}
+caption {
+    font: 0.85rem open_sanslight, 'roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1e74ba;
+    background: #fff;
+    padding: 5px 0;
+    text-align: left;
+    font-weight: bold;
+}
+
+#dataTableResultList + .splitPanel {
+    display: none;
+}
+.splitPanel .panel-left table th.domain {
+    display: none;
+}
+.splitPanel .panel-left table th.descripten {
+    display: none;
+}
+.splitPanel .panel-left table td.domain {
+    display: none;
+}
+.splitPanel .panel-left table td.descripten {
+    display: none;
+}
+.splitPanel div.dataTables_info {
+    display: none;
+    position: absolute;
+    width: auto;
+    top: 8px;
+    left: 50%;
+    font-size: 0.7em;
+    text-align: center;
+}
+.splitPanel div.dataTables_length {
+    display: none;
+    float: left;
+    width: 100%;
+    min-width: 10em;
+}
+.splitPanel div.dataTables_filter {
+    display: none;
+    clear: both;
+    float: left;
+}
+.splitPanel div.dataTables_filter label {
+    float: left;
+    width: 45%;
+    font-size: 0.7em;
+    text-align: right;
+}
+.splitPanel div.dataTables_paginate {
+    display: none;
+}
+.splitPanel table.k-data-table {
+    border-top: none;
+}
+.splitPanel th {
+    border-top: none;
+}
+.splitPanel th.sorting {
+    background: transparent;
+}
+div.dataTables_wrapper {
+    border: none;
+    float: left;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px;
+    margin-top: 10px;
+    height: auto;
+}
+
+#dataTableResultList div.dataTables_wrapper {
+    border: none;
+    float: left;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px;
+    margin-top: 10px;
+    height: 100%;
+    max-height: 100%;
+    box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 0.53);
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 0.53);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 0.53);
+}
+
+div.dataTables_info {
+    position: absolute;
+    width: 30%;
+    top: 20px;
+    left: 28%;
+    font-size: 0.7em;
+    text-align: center;
+}
+div.dataTables_filter {
+    display: block;
+    position: relative;
+    bottom: 4px;
+}
+div.dataTables_filter input {
+    width: 50%;
+}
+div.dataTables_filter label {
+    float: left;
+    left: 58%;
+    position: absolute;
+    width: 42%;
+}
+div.dataTables_length {
+    float: left;
+    width: 25%;
+    min-width: 10em;
+    line-height: 26px;
+}
+div.dataTables_length label {
+    font-size: 0.7em;
+    display: inline-flex;
+    width: 100%;
+}
+div.dataTables_length select {
+    margin: 0 0.8em;
+    width: 16%;
+    background-position: right 5px center;
+}
+
+li.deployedVersion a {
+    font-weight: bold;
+    color: #0066a1;
+}
+ul.pagination {
+    float: left;
+    width: 100%;
+    text-align: right;
+}
+
+ul.pagination li {
+    display: inline-block;
+    padding: 0;
+}
+
+/* ------ LABEL in TABLE --------*/
+
+td.center p {
+    margin: 0;
+    padding: 2px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+td.center p.tableLabel {
+    border: 1px solid rgb(119, 119, 119);
+    background-color: rgb(119, 119, 119);
+    color: #ffffff;
+}
+
+td.center p.labelDeploy {
+    border: 1px solid rgb(107, 142, 35);
+    background-color: rgb(107, 142, 35);
+    color: #ffffff;
+}
+
+td.center p.labelDisabled {
+    background-color: rgb(199, 199, 221);
+    border: 1px solid rgb(199, 199, 221);
+    color: #000000;
+}
+
+td.center p.labelUndeploy {
+    border: 1px solid rgb(255, 215, 0);
+    background-color: rgb(255, 215, 0);
+}
+
+td.center p.labelInactive {
+    background-color: rgb(220, 20, 60);
+    border: 1px solid rgb(220, 20, 60);
+    color: #ffffff;
+}
+
+td.center p.labelActive {
+    background-color: rgb(50, 205, 50);
+    border: 1px solid rgb(50, 205, 50);
+    color: #ffffff;
+}
+
+table.routingConfiguration .tableLabel {
+    width: auto;
+    margin-right: 5px;
+}
+
+/* ------------------------------------------------------- VERSION TABLE  ---------*/
+table.deployedVersion {
+    width: 93%;
+    height: auto;
+    margin-top: 0;
+}
+table.deployedVersion th {
+    padding: 5px;
+}
+
+tr.deployedVersion {
+    background-color: #0066a1;
+    color: #ffffff;
+}
+
+td.extendVersion a {
+    text-decoration: none;
+    color: #0066a1;
+    font-weight: bold;
+}
+
+/* ----------------- Version LIST TOOL TIP DESCRIPTION ------------------------------ */
+
+tr.version-tooltip {
+    position: relative;
+    text-decoration: none;
+}
+tr.version-tooltip:after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 200%;
+    left: 50%;
+    background: #ffffff;
+    padding: 5px 15px;
+    color: #333333;
+    border: 1px solid #888888;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    white-space: nowrap;
+    opacity: 0;
+    /* At time of this creation, only Fx4 doing pseduo transitions */
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 0.53);
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 0.53);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 0.53);
+    font-size: 0.75em;
+}
+tr.version-tooltip:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    /* At time of this creation, only Fx4 doing pseduo transitions */
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    opacity: 0;
+    left: 50%;
+    bottom: 200%;
+    display: none;
+}
+tr.version-tooltip:hover:after {
+    bottom: 200%;
+}
+tr.version-tooltip:hover:before {
+    bottom: 200%;
+}
+tr.version-tooltip:hover:after,
+a:hover:before {
+    opacity: 1;
+}
+
+/* -------------------------------------------------------------------------------------------*/
+/* ---------------   LIST COMPONENT   --------------------------------------------------------*/
+/* -------------------------------------------------------------------------------------------*/
+
+ul.k-navbar {
+    padding: 0;
+    margin: 4px 4% 2em;
+    float: left;
+}
+
+ul.k-actions {
+    text-align: right;
+    padding: 0;
+    margin: 1em 0;
+}
+
+ul.k-navbar a,
+ul.k-navbar a:visited {
+    background: transparent;
+}
+
+/* ---------PANEL LIST------- */
+
+.panelContainerList li {
+    padding: 20px 0;
+    border-bottom: 2px solid #1e74ba;
+    text-align: center;
+}
+
+/* -------------------------------------------------------------------------------------------*/
+/* ---------------   QUICK FILTER   ----------------------------------------------------------*/
+/* -------------------------------------------------------------------------------------------*/
+
+ul#quickFilterList {
+    float: left;
+    width: 100%;
+    margin: 10px 0;
+}
+
+#quickFilterList h4 {
+    padding: 0 15px 0 0;
+    line-height: 25px;
+}
+
+#quickFilterList li {
+    padding: 0;
+    float: left;
+    line-height: 17px;
+}
+
+#quickFilterList a,
+#quickFilterList a:link {
+    padding: 5px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    float: left;
+    margin-right: 16px;
+    text-decoration: none;
+    background-color: #ffffff;
+}
+
+#quickFilterList a:hover {
+    border: 1px solid #0066a1;
+    color: #0066a1;
+}
+
+#quickFilterList li select {
+    padding: 5px 35px 5px 15px;
+    border-radius: 3px;
+    border: 1px solid #dddddd;
+}
+#quickFilterList li select:hover {
+    border: 1px solid #0066a1;
+    color: #0066a1;
+    cursor: pointer;
+}
+
+#quickFilterList li button {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+/* -------------------------------------------------------------------------------------------*/
+/* ---------------   FORM    -----------------------------------------------------------------*/
+/* -------------------------------------------------------------------------------------------*/
+
+/* ------ INPUTS ------- */
+
+/* ---- TYPE: text ----  */
+
+input,
+select {
+    width: 100%;
+    max-width: 100%;
+    color: #555555;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #cccccc;
+    border-radius: 0px;
+    padding: 0.4em 0.5em 0.4em 0.5em;
+    margin: 0;
+}
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url('../img/arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: auto 50%;
+}
+
+input:active,
+input:focus,
+input:hover,
+select:active,
+select:focus,
+select:hover {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #1e74ba;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    background-image: url('../img/arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: auto 50%;
+}
+
+input[type='text']:disabled,
+select:disabled {
+    color: #888888;
+    border-bottom: 2px solid #efefef;
+    border-radius: 1px;
+    cursor: default;
+    background-color: transparent;
+}
+input[type='text']:disabled:hover,
+select:disabled:hover {
+    color: #888888;
+    border-bottom: 2px solid #efefef;
+    border-radius: 1px;
+    cursor: default;
+    background-color: transparent;
+}
+
+input.disabled,
+select.disabled {
+    color: #888888;
+    border-bottom: 2px solid #efefef;
+    border-radius: 1px;
+    cursor: default;
+    background-color: transparent;
+}
+
+/* ---- TYPE: button; checkbox; submit; reset; ----  */
+
+input[type='button'],
+input[type='submit'] {
+    font: 100%, 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    text-shadow: none;
+    color: #fff;
+    background: #1e74ba;
+    padding: 0.3em 1em;
+    margin: 0 0 5px 8px;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    color: #555555;
+}
+
+input[type='button']:hover,
+input[type='submit']:hover,
+a.k-button:hover {
+    color: #fff;
+    background: #1e74ba;
+    text-decoration: underline;
+}
+
+button#applyVersionDescription {
+    float: right;
+    margin-top: 8px;
+    display: none;
+}
+
+/* ---- TYPE: FILE - FUNCTION SEE JAVASCRIPT ----  */
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.btn-file > input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-size: 23px;
+    cursor: pointer;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    direction: ltr;
+}
+
+.fileinput {
+    display: inline-block;
+    margin-bottom: 9px;
+    margin: 9px 0;
+}
+
+.fileinput .btn {
+    vertical-align: middle;
+    background: transparent;
+    padding: 0.3em 1em;
+    border: 2px solid #1e74ba;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #1e74ba;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+.fileinput-exists .fileinput-new,
+.fileinput-new .fileinput-exists {
+    display: none;
+}
+
+.fileinput-inline .fileinput-controls {
+    display: inline;
+}
+
+.fileinput-filename {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.form-control .fileinput-filename {
+    vertical-align: bottom;
+}
+
+.fileinput.input-group {
+    display: table;
+}
+
+.fileinput.input-group > * {
+    position: relative;
+    z-index: 2;
+}
+
+.fileinput.input-group > .btn-file {
+    z-index: 1;
+}
+
+/* ----  TEXTAREA ------*/
+
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+    font-size: 0.75rem;
+    padding: 15px;
+    border: 2px solid #cccccc;
+    border-radius: 0;
+    height: auto;
+    min-height: 100px;
+    text-align: left;
+}
+textarea:focus,
+textarea:hover {
+    border: 2px solid #1e74ba;
+    -webkit-box-shadow: 0 0 3px #ccc;
+    box-shadow: 0 0 3px #ccc;
+}
+
+textarea:read-only,
+textarea:-moz-read-only {
+    border: 2px solid #efefef;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #777777;
+    cursor: default;
+}
+
+textarea:read-only:focus,
+textarea:-moz-read-only:focus {
+    border: 2px solid #efefef;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #777777;
+    cursor: default;
+}
+
+textarea:disabled {
+    background-color: transparent;
+    border: 2px solid #efefef;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #777777;
+    cursor: default;
+}
+
+/* ----- FORM SPECIFICS ----- */
+
+.mandatory svg {
+    font-size: 0.6em;
+    color: red;
+    padding-left: 5px;
+}
+
+.splitPanel label + textarea {
+    margin-top: 5px;
+}
+
+#splitRoutingConf label,
+#splitAction label {
+    width: 6rem;
+}
+#splitRoutingConf dl.fullSize label,
+#splitAction dl.fullSize label {
+    width: 100%;
+}
+
+#splitRoutingConf input,
+#splitAction input {
+    width: 80%;
+}
+
+#splitAction p.medium input {
+    width: 70%;
+}
+
+#splitAction p.medium select {
+    width: 70%;
+}
+
+#splitRoutingConf p.medium input {
+    width: 60%;
+}
+
+#splitRoutingConf p.medium select {
+    width: 60%;
+}
+
+/* -------- LABELS/ LINK LABELS ----*/
+
+p.selectTypeLabel {
+    width: auto;
+    padding: 4px 45px;
+    background-color: #0066a1;
+    border-radius: 2px;
+    margin-right: 15px;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    -o-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    color: #ffffff;
+}
+
+p.selectTypeLabel.addAction {
+    padding: 4px 10px;
+    font-weight: bold;
+}
+.selectTypeLabel a {
+    color: #ffffff;
+}
+
+/* ----------------------------- MESSAGES ERROR/ INFO/ SUCCESS/ WARNING ----------------------*/
+
+div.k-error-messages {
+    background: transparent;
+    border: 1px solid #c00;
+    border-radius: 2px;
+    margin: 0 1em 1em 1em;
+}
+
+/* -------------------------------------------------------------------------------------------*/
+/* ---------------   PANEL COMPONENTS   ------------------------------------------------------*/
+/* -------------------------------------------------------------------------------------------*/
+
+/* ----------------------------------- */
+/* ---- GENERAL PANEL -------- */
+
+.k-panel {
+    clear: both;
+    overflow: auto;
+    margin-bottom: 2em;
+    border: none;
+    background-color: #fff;
+}
+
+.k-panel .control {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    color: #333333;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+.k-panel .control a,
+.k-panel .control a:link,
+.k-panel .control a:visited {
+    display: block;
+    font-size: 0.85rem;
+    text-decoration: none;
+    text-align: left;
+    color: #ffffff;
+    background: #999 url(../img/k-theme0/unfold.svg) right 0.45em no-repeat;
+    padding: 0.5em 2em 0.5em 0.7em;
+    border: none;
+    cursor: pointer;
+}
+
+.k-panel .control a:hover,
+.k-panel .control a:focus {
+    color: #333333;
+    background-color: #ffffff;
+}
+
+.k-panel .control a.active,
+.k-panel .control a.active:link,
+.k-panel .control a.active:visited {
+    color: #333333;
+    background: #fff url(../img/k-theme0/fold.svg) right 0.45em no-repeat;
+    font-size: 0.85rem;
+}
+
+.k-panel .control a.active:hover,
+.k-panel .control a.active:focus {
+    color: #333333;
+    background-color: #fff;
+}
+
+/* ----------------------------------- */
+/* ---- SPLIT PANEL COMPONENT -------- */
+
+.panel-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    overflow: hidden;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 0.53);
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 0.53);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(170, 170, 170, 0.53);
+}
+
+.panel-container.channel-split-container {
+    margin-top: 1.5em;
+    float: left;
+    border: 1px solid #cccccc;
+}
+
+.panel-left {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 10px;
+    width: 300px;
+    min-height: 200px;
+    min-width: 270px;
+    white-space: nowrap;
+    background: transparent;
+    position: relative;
+}
+
+.channel-split-container .panel-left {
+    padding: 15px;
+}
+.k-tabbed-data .channel-split-container .panel-right {
+    padding: 15px;
+}
+
+.splitter {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 13px;
+    background: url(https://raw.githubusercontent.com/RickStrahl/jquery-resizable/master/assets/vsizegrip.png) center center no-repeat
+        #cccccc;
+    min-height: 200px;
+    cursor: col-resize;
+}
+
+.panel-right {
+    width: 100%;
+    min-height: 200px;
+    min-width: 200px;
+    background: #ffffff;
+}
+
+#splitRuleEditor.panel-right section .panelDisplayGrid {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 30% 70%;
+    grid-template-columns: 30% 70%;
+    -ms-grid-rows: auto auto 1fr;
+    grid-template-rows: auto auto 1fr;
+    position: relative;
+}
+
+#splitRuleEditor .leftDataContainer {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1 / 2;
+    padding-right: 15px;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2 / 3;
+}
+
+#splitRuleEditor .rightDataContainer {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1 / 2;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-row: 3 / 4;
+}
+
+#splitRuleEditor .contentDataContainer {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2 / 3;
+    grid-row: 2 / end;
+}
+
+#splitRuleEditor textarea {
+    height: 92%;
+}
+
+div.contentDataContainer textarea {
+    min-height: 100px;
+    overflow-y: auto;
+}
+
+div.rightDataContainer li {
+    padding: 2px 0;
+}
+#splitRoutingConf #channelPlusIcon {
+    width: 100%;
+}
+
+/* -------------------------------------------------------------------------------------------*/
+/* ---------------   TABS COMPONENTS   -------------------------------------------------------*/
+/* -------------------------------------------------------------------------------------------*/
+
+.panelRightHeader + .k-tabbed-data ul.tabs > li:first-child {
+    margin-left: 1rem;
+}
+
+.panelRightHeader + .k-tabbed-data > .content {
+    background: transparent;
+    border: none;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+
+.panelRightHeader + .k-tabbed-data ul.tabs {
+    background-color: #444e60;
+    border-bottom: 1px solid #444e60;
+}
+
+.panelRightHeader + .k-tabbed-data ul.tabs a.active,
+.panelRightHeader + .k-tabbed-data ul.tabs a.active:link,
+.panelRightHeader + .k-tabbed-data ul.tabs a.active:visited {
+    background: none;
+    border-bottom: 3px solid #ffffff;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    padding: 0.5em 1em 0.2em 1em;
+}
+
+.panelRightHeader + .k-tabbed-data ul.tabs a,
+.panelRightHeader + .k-tabbed-data ul.tabs a:link,
+.panelRightHeader + .k-tabbed-data ul.tabs a:visited {
+    color: #ffffff;
+    background: none;
+    border: none;
+    padding: 0.5em 1em 0.2em 1em;
+}
+
+.panelRightHeader + .k-tabbed-data ul.tabs a:hover,
+.panelRightHeader + .k-tabbed-data ul.tabs a:focus,
+.panelRightHeader + .k-tabbed-data ul.tabs a.active:hover,
+.panelRightHeader + .k-tabbed-data ul.tabs a.active:focus {
+    background: none;
+    border-bottom: 3px solid #ffffff;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+.k-tabbed-data .panel-right {
+    padding: 10px;
+}
+
+.splitModal .panel-right {
+    padding: 10px;
+}
+
+/* -------------------------------------------------------------------------------------------*/
+/* ---------------   MODAL WINDOW   ----------------------------------------------------------*/
+/* -------------------------------------------------------------------------------------------*/
+
+/* --- The Modal (background) ----- */
+
+.modal {
+    /* display: none; Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+}
+
+/* ---- Modal Content/Box ---- */
+
+.modal-window {
+    background-color: #fefefe;
+    margin: 5% 10%;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    float: left;
+    height: auto;
+}
+
+.modal-head {
+    float: left;
+    width: 100%;
+    background-color: #1e74ba;
+    padding: 20px 20px 15px 20px;
+}
+
+.modal-head h3 {
+    width: auto;
+    color: #ffffff;
+    margin-bottom: 0;
+}
+
+.modal-content {
+    float: left;
+    width: 100%;
+    height: 100%;
+    font-size: 0.9rem;
+    padding: 20px;
+}
+
+.modal p {
+    width: 33%;
+}
+
+.modal p.large {
+    width: 100%;
+}
+.modal p.large input {
+    width: 100%;
+}
+.modal input {
+    width: 90%;
+    color: #555555;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #cccccc;
+}
+.modal input:hover,
+.modal input:active,
+.modal input:focus {
+    width: 90%;
+    color: #555555;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #1e74ba;
+}
+.modal #splitRoutingConf p input {
+    width: 90%;
+}
+.modal-content label:first-child {
+    margin-top: 0;
+}
+
+.modal select {
+    width: 90%;
+    color: #555555;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #cccccc;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    background-image: url('../img/arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: auto 50%;
+}
+.modal select:hover,
+.modal select:active,
+.modal select:focus {
+    width: 90%;
+    color: #555555;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #1e74ba;
+}
+.modal #splitRoutingConf p select {
+    width: 90%;
+    color: #555555;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #cccccc;
+}
+.modal input[type='checkbox'],
+.modal input[type='radio'] {
+    width: auto;
+    margin-left: 1.5em;
+    color: #555555;
+}
+.modal input.radio_button {
+    width: auto;
+    margin-left: 1.5em;
+}
+.modal input.radio_button_input {
+    width: auto;
+    margin-left: 1em;
+}
+
+.modal input.input_button {
+    width: 67%;
+}
+
+.modal input.disabled {
+    color: #888888;
+    border-bottom: 2px solid #efefef;
+    border-radius: 1px;
+    cursor: default;
+}
+/* --- The Close Button --- */
+
+.modal-head button {
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.close,
+.close:hover,
+.close:focus {
+    color: #ffffff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.close a,
+.close a:link,
+.close a:visited,
+.close a:hover,
+.close a:focus,
+.close a:active {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.modal-head hr {
+    display: block;
+    float: left;
+    width: 100%;
+    color: #0066a1;
+    margin-bottom: 13px;
+}
+
+.modal-content .k-actions {
+    margin-bottom: 0;
+    margin-top: 15px;
+}
+
+.modal-content button {
+    margin-left: 10px;
+}
+
+/* ---- Confirmation Modal ----- */
+
+.confirmModal .modal-window {
+    width: 30%;
+    margin: 10% 35%;
+}
+
+.confirmModal .modal-head {
+    background-color: #0066a1;
+    padding: 10px 15px 6px 15px;
+}
+
+.confirmModal .modal-window {
+    padding: 0;
+}
+
+.confirmModal hr {
+    display: none;
+}
+
+.confirmModal h3 {
+    color: #ffffff;
+}
+
+.confirmModal .modal-content {
+    padding: 15px;
+}
+
+/* -------------------------------------------------------------------------------------------*/
+/* ---------------   SPECIAL PAGE COMPONENTS   -----------------------------------------------*/
+/* -------------------------------------------------------------------------------------------*/
+
+/* -----   NEW CHANNEL COMPONENT (ACTION DETAILS)   -----------*/
+/* ------------------------------------------------------------*/
+
+p.channelListItem {
+    /*ITEM in Split Panel left List*/
+    border-bottom: 1px solid #0066a1;
+    padding-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.channelListItem span {
+    float: left;
+}
+
+#addChannelIcon {
+    margin-top: 10px;
+}
+
+.splitPanelEditActions .channelListItem svg {
+    width: auto !important;
+    float: right;
+    padding-right: 10px;
+    height: 0.6em;
+    margin: 0 !important;
+    padding-bottom: 0;
+}
+
+.splitPanelEditActions svg {
+    color: #0066a1;
+    text-align: left;
+    float: left;
+}
+
+#channelPlusIcon svg {
+    cursor: pointer;
+    clear: both;
+    float: left;
+    width: auto;
+    margin-right: 10px;
+    color: #0066a1;
+}
+
+#channelPlusIcon {
+    text-align: left;
+    width: auto;
+    float: left;
+    clear: both;
+    margin-top: 5px;
+}
+
+/* -------------------- ASSIGN ACTION COMPONENT ---------------*/
+/* ------------------------------------------------------------*/
+
+select.assignAction {
+    float: left;
+    padding: 10px 15px;
+}
+
+.iconBarAssign {
+    float: left;
+    width: 10%;
+}
+
+.iconBarAssign p {
+    width: 100%;
+    text-align: center;
+    color: #0066a1;
+}
+
+#assignActionComponent h6:nth-child(2n) {
+    width: 40%;
+}
+
+#assignActionComponent h6 {
+    width: 55%;
+    float: left;
+}
+
+#assignActionComponent select {
+    border: 2px solid #cccccc;
+    background: none;
+}
+
+/* -------------------------------------------------------------------------------------------*/
+/* ---------------   FONT ICONS / FONT AWESOM   ----------------------------------------------*/
+/* -------------------------------------------------------------------------------------------*/
+
+.svg-inline--fa {
+    display: inline-block;
+    font-size: inherit;
+    height: 1em;
+    overflow: visible;
+    vertical-align: -0.125em;
+    font-size: 1.8em;
+}
+
+.svg-inline--fa.fa-w-18,
+.svg-inline--fa.fa-w-16,
+.svg-inline--fa.fa-w-20,
+.svg-inline--fa.fa-w-14 {
+    width: 100%;
+    margin-bottom: 7px;
+}
+
+.svg-inline--fa.fa-w-16.fa-arrow-alt-circle-left {
+    width: auto;
+    float: left;
+    bottom: 0;
+    position: relative;
+    left: 10px;
+    color: #0066a1;
+}

@@ -1,0 +1,57 @@
+<div [ngSwitch]="isAuthenticated()">
+
+    <div *ngSwitchCase="true">
+
+        <div [ngSwitch]="isWelcomeState">
+            <div *ngSwitchCase="true">
+                <jhi-landing></jhi-landing>
+            </div>
+
+            <div *ngSwitchCase="false">
+                <div id="container">
+                    <jhi-header></jhi-header>
+
+                    <nav role="navigation">
+                        <div class="mainNav" role="navigation">
+                            <ul>
+                                <li class="home"><a href=""><i class="fas fa-home"></i><span class="navText">Home</span></a></li>
+                                <li [ngClass]="isRuleMode() ? 'activeMainTab' : ''"><a (click)="navigate('management')" title="Click to open/close dropdown"><i class="fas fa-list-ul"></i><span class="navText">Processing</span></a></li>
+                                <li id="routingConfigurationTab" [ngClass]="getActiveTab() === 'routingConfigs' ? 'activeMainTab' : ''"><a (click)="navigate('routingConfigs')" title="Click to open/close dropdown"><i class="fas fa-cogs"></i><span class="navText">Configuration</span></a></li>
+                            </ul>
+                        </div>
+                    </nav>
+
+                    <div class="subNav" role="navigation">
+                        <ul  *ngIf="isRuleMode()" id="subProcessing">
+                            <li [ngClass]="getActiveTab() === 'management' ? 'activeTab' : ''"><a (click)="navigate('management')"><i class="fas fa-user-tie"></i><span class="navText">Module Management</span></a></li>
+                            <li [ngClass]="getActiveTab() === 'editor' ? 'activeTab' : ''"><a (click)="navigate('editor')"><i class="fas fa-pen"></i><span class="navText">Module Editor</span></a></li>
+                            <li [ngClass]="getActiveTab() === 'profiles' ? 'activeTab' : ''"><a href="#"><i class="fas fa-list-ul"></i><span class="navText">List and Profile Management</span></a></li>
+                        </ul>
+
+
+                        <ul *ngIf="isConfigMode()" id="subConfiguration">
+                            <li [ngClass]="getActiveTab() === 'routingConfigs' ? 'activeTab' : ''"><a (click)="navigate('routingConfigs')"><i class="fas fa-cog"></i>Routing Configuration</a></li>
+                            <li [ngClass]="getActiveTab() === 'routingActions' ? 'activeTab' : ''"><a (click)="navigate('routingActions')"><i class="fas fa-cog"></i>Actions</a></li>
+                            <li><a href="#"><i class="fas fa-cog"></i>Filtering</a></li>
+                        </ul>
+                    </div>
+
+                    <div id="wrapper">
+                        <div id="main" role="main">
+                            <router-outlet></router-outlet>
+                        </div>
+                    </div>
+
+                    <footer role="contentinfo">
+                        <p> 2018 equensWorldline </p>
+                    </footer>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div *ngSwitchCase="false">
+        <jhi-login></jhi-login>
+    </div>
+</div>
