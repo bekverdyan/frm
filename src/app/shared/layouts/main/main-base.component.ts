@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer } from '@angular/core';
+import { Principal } from 'app/core';
 import { Router } from '@angular/router';
-import { NavigationService } from '../../navigation/navigation.service';
-import { Principal } from '../../../core';
+import { NavigationService } from 'app/shared/navigation/navigation.service';
 
 @Component({
     selector: 'jhi-main',

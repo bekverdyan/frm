@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
-// import { SERVER_API_URL } from 'app/app.constants';
+import { SERVER_API_URL } from 'app/app.constants';
 import { ProfileInfo } from './profile-info.model';
 import { map } from 'rxjs/operators';
-import { SERVER_API_URL } from '../../../app.constants';
 
 @Injectable({ providedIn: 'root' })
 export class ProfileService {

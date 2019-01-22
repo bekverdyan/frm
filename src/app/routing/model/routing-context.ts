@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { RoutingEntry } from '..';
+import {Injectable} from '@angular/core';
+import {RoutingEntry} from 'app/routing';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class RoutingContext {
     model: any;
     targetRoutingEntry: RoutingEntry;
@@ -12,16 +12,5 @@ export class RoutingContext {
 
     setTarget(routingEntry: RoutingEntry) {
         this.targetRoutingEntry = routingEntry;
-    }
-
-    print() {
-        console.log(
-            'rule context: selectedId:' +
-                this.targetRoutingEntry.routingConfId +
-                ', selectedName: ' +
-                this.targetRoutingEntry.routingConfRuleName +
-                ' , model: ' +
-                this.model
-        );
     }
 }

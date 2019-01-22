@@ -1,11 +1,11 @@
-// import { RuleActionEntry, RuleEntry, RuleVersionEntry } from 'app/rules';
+import { RuleActionEntry, RuleEntry, RuleVersionEntry } from 'app/rules';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { FrmRoutingConfigsAware } from '../api/interfaces';
-import { RoutingEntry } from '../model/routing-entry';
-import { SERVER_API_URL } from '../../app.constants';
-import { ActionEntry } from '..';
+import { SERVER_API_URL } from 'app/app.constants';
+import { FrmRoutingConfigsAware } from 'app/routing/api/interfaces';
+import { RoutingEntry } from 'app/routing/model/routing-entry';
+import { ActionEntry } from 'app/routing';
 
 @Injectable({ providedIn: 'root' })
 export class RoutingRepository implements FrmRoutingConfigsAware {

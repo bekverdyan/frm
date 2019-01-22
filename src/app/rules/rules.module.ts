@@ -1,19 +1,20 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
 import { RuleModalComponent } from './';
-import { RuleDetailsComponent } from '../rules/rule-details/rule-details.component';
-import { RulesManagementComponent } from '../rules/rules-management/rules-management.component';
-import { FormsModule } from '@angular/forms';
+import { NgbDateMomentAdapter } from 'app/shared';
+import { RuleDetailsComponent } from 'app/rules/rule-details/rule-details.component';
+import { RulesManagementComponent } from 'app/rules/rules-management/rules-management.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { AbbreviationLabelsPipe } from '../rules/util/AbbreviationLabelsPipe';
-import { RuleDeploymentModalComponent } from '../rules/rule-details/deployment/rule-deployment-modal.component';
-import { RuleVersionModalComponent } from '../rules/rule-details/version/rule-version-modal.component';
-import { RuleUndeployModalComponent } from '../rules/rule-details/undeploy/rule-undeploy-modal.component';
-import { NgbDateMomentAdapter } from '../shared';
+import { AbbreviationLabelsPipe } from 'app/rules/util/AbbreviationLabelsPipe';
+import { RuleDeploymentModalComponent } from 'app/rules/rule-details/deployment/rule-deployment-modal.component';
+import { RuleVersionModalComponent } from 'app/rules/rule-details/version/rule-version-modal.component';
+import { RuleUndeployModalComponent } from 'app/rules/rule-details/undeploy/rule-undeploy-modal.component';
+import { MessageDialogComponent } from './message-dialog/message-dialog.component';
 
 @NgModule({
-    imports: [CommonModule, BrowserModule, FormsModule],
+    imports: [CommonModule, BrowserModule, FormsModule, ReactiveFormsModule],
     declarations: [
         RuleModalComponent,
         RuleDeploymentModalComponent,
@@ -21,7 +22,8 @@ import { NgbDateMomentAdapter } from '../shared';
         RuleUndeployModalComponent,
         RulesManagementComponent,
         RuleDetailsComponent,
-        AbbreviationLabelsPipe
+        AbbreviationLabelsPipe,
+        MessageDialogComponent
     ],
     providers: [{ provide: NgbDateAdapter, useClass: NgbDateMomentAdapter }],
     entryComponents: [
@@ -30,9 +32,18 @@ import { NgbDateMomentAdapter } from '../shared';
         RuleVersionModalComponent,
         RuleUndeployModalComponent,
         RulesManagementComponent,
-        RuleDetailsComponent
+        RuleDetailsComponent,
+        MessageDialogComponent
     ],
-    exports: [RuleModalComponent, RuleDeploymentModalComponent, RuleVersionModalComponent, RuleUndeployModalComponent, FormsModule],
+    exports: [
+        RuleModalComponent,
+        RuleDeploymentModalComponent,
+        RuleVersionModalComponent,
+        RuleUndeployModalComponent,
+        FormsModule,
+        ReactiveFormsModule,
+        MessageDialogComponent
+    ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class RulesModule {}

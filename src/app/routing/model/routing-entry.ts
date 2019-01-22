@@ -1,3 +1,5 @@
+import {ActionEntry} from 'app/routing';
+
 export class RoutingEntry {
     routingConfId: string;
     routingConfDomainName: string;
@@ -6,6 +8,7 @@ export class RoutingEntry {
     routingConfBusinessId: string;
     routingConfActive: string;
     routingActions: string;
+    routingConfActions: any[];
     routingConfDescription: string;
     routingConfRuleInfo: string;
     routingConfRuleDetectionType: string;
@@ -19,7 +22,7 @@ export class RoutingEntry {
         routingConfAlertRoutingId: string,
         routingConfBusinessId: string,
         routingConfActive: string,
-        routingActions: string,
+        routingConfActions: any[],
         routingConfDescription: string,
         routingConfRuleInfo: string,
         routingConfRuleDetectionType: string,
@@ -32,7 +35,7 @@ export class RoutingEntry {
         this.routingConfAlertRoutingId = routingConfAlertRoutingId;
         this.routingConfBusinessId = routingConfBusinessId;
         this.routingConfActive = routingConfActive;
-        this.routingActions = routingActions;
+        this.routingConfActions = routingConfActions;
         this.routingConfDescription = routingConfDescription;
         this.routingConfRuleInfo = routingConfRuleInfo;
         this.routingConfRuleDetectionType = routingConfRuleDetectionType;

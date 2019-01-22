@@ -1,12 +1,15 @@
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { RulesRepository } from 'app/rules/dto/rules-repository';
+import { RuleActionEntry, RuleEntry, RuleVersionEntry, SearchRuleItem } from 'app/rules';
+import { Location } from '@angular/common';
+import { KawaAdapterService } from 'app/shared/layouts/kawa/kawa-adapter.service';
+import { RuleContext } from 'app/rules/model/rule-context';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.service';
-import { RuleActionEntry, RuleContext, RuleEntry, RulesRepository, RuleVersionEntry, SearchRuleItem } from '..';
-import { RuleDeploymentModalComponent } from './deployment/rule-deployment-modal.component';
-import { RuleUndeployModalComponent } from './undeploy/rule-undeploy-modal.component';
-import { RuleVersionModalComponent } from './version/rule-version-modal.component';
+import { RuleDeploymentModalComponent } from 'app/rules/rule-details/deployment/rule-deployment-modal.component';
+import { RuleVersionModalComponent } from 'app/rules/rule-details/version/rule-version-modal.component';
+import { RuleUndeployModalComponent } from 'app/rules/rule-details/undeploy/rule-undeploy-modal.component';
+import { RuleStatus } from 'app/rules/rule/rule-status.enum';
 
 @Component({
     selector: 'jhi-rule-details',
@@ -137,5 +140,12 @@ export class RuleDetailsComponent implements OnInit {
 
     getVersionRowClass(version: RuleVersionEntry) {
         return version.pmoduleVersionDeployedOnDomains ? 'deployedVersion version-todfasdfolastip' : 'version-tooltip';
+    }
+
+    /**
+     * Returns true if the current rule is deployed, false otherwise.
+     */
+    isDeployed(): boolean {
+        return RuleStatus.Deployed.toUpperCase() === this.rule.pmoduleStatus.toUpperCase();
     }
 }

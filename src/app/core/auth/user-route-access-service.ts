@@ -1,7 +1,8 @@
 import { Injectable, isDevMode } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 
-import { Principal, StateStorageService } from '../';
+import { Principal } from '../';
+import { StateStorageService } from 'app/core';
 
 @Injectable({ providedIn: 'root' })
 export class UserRouteAccessService implements CanActivate {

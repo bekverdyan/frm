@@ -1,0 +1,14 @@
+<div id="messageModalDialog" class="modal messageModal">
+    <!-- Modal content -->
+    <div class="modal-window">
+        <div class="modal-head">
+            <h3>{{ title }}</h3>
+            <span id="closeMessageModal" class="close" (click)="close()">&times;</span>
+        </div>
+
+        <div class="modal-content">
+            <p *ngFor="let message of messages"
+               class="large message-{{ message.type | lowercase }}">{{ message.text }}</p>
+        </div>
+    </div>
+</div>

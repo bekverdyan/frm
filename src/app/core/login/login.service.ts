@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { JhiLanguageService } from 'ng-jhipster';
-import { Principal, AuthServerProvider } from '..';
+
+import { Principal } from 'app/core';
+import { AuthServerProvider } from 'app/core';
 
 @Injectable({ providedIn: 'root' })
 export class LoginService {

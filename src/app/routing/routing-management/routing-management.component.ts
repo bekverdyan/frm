@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { RulesRepository } from 'app/rules';
+import { DomainEntry } from 'app/rules/model/domain-entry';
 import 'datatables.net';
 import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { RoutingEntry, RoutingContext } from '..';
-import { DomainEntry } from 'src/app/rules/model/domain-entry';
-import { RoutingRepository } from '../dto/routing-repository';
-import { NavigationService } from '../../shared/navigation/navigation.service';
-import { RulesRepository } from '../../rules/dto/rules-repository';
-import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.service';
+import { KawaAdapterService } from 'app/shared/layouts/kawa/kawa-adapter.service';
+import { NavigationService } from 'app/shared/navigation/navigation.service';
+import { RoutingRepository } from 'app/routing/dto/routing-repository';
+import { RoutingContext, RoutingEntry } from 'app/routing';
 
 @Component({
     selector: 'jhi-routing-management',
@@ -17,7 +17,6 @@ import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.servi
 export class RoutingManagementComponent implements OnInit {
     availableRoutings: RoutingEntry[];
     domains: DomainEntry[];
-    modalRef: NgbModalRef;
     listMode: boolean;
     usageFilter: string;
     moduleTable: any;
@@ -64,8 +63,7 @@ export class RoutingManagementComponent implements OnInit {
         this.listMode = false;
         this.context.setModel(this.moduleTable);
         this.context.setTarget(entry);
-        this.context.print();
-        // this.router.navigate(['/ruleDetails', entry.pmoduleId]);
+        this.router.navigate(['/routingDetails', entry.routingConfId]);
     }
 
     createRoutingConfig() {

@@ -2,9 +2,9 @@ import { Injectable, Injector } from '@angular/core';
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { StateStorageService } from 'app/core/auth/state-storage.service';
 import { Router } from '@angular/router';
-import { StateStorageService } from '../../core/auth/state-storage.service';
-import { LoginService } from '../../core';
+import { LoginService } from 'app/core';
 
 @Injectable()
 export class AuthExpiredInterceptor implements HttpInterceptor {

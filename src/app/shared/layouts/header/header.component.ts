@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Principal, LoginService } from '../../../core';
+import { LoginService, Principal } from 'app/core';
 
 @Component({
     selector: 'jhi-header',

@@ -1,6 +1,5 @@
 export class DomainEntry {
     domainId: string;
-    // mandatory
     domainName: string;
     domainBusinessId: string;
     domainType: string;
