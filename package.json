@@ -53,6 +53,8 @@
     "@types/node": "~8.9.4",
     "angular-router-loader": "~0.8",
     "angular2-template-loader": "~0.6",
+    "browser-sync": "2.26.3",
+    "browser-sync-webpack-plugin": "2.2.2",
     "awesome-typescript-loader": "~5.2",
     "babel-core": "~6.26",
     "babel-loader": "~7.1",
