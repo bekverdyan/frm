@@ -22,6 +22,7 @@ describe('RulesRepository', () => {
     });
 
     it('#getRule should return rule', () => {
+        console.log('gago');
         // expect(repository.getRule('')).toBeTruthy();
     });
 });
