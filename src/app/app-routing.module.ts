@@ -1,11 +1,10 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {RulesManagementComponent} from 'app/rules/rules-management/rules-management.component';
-import {RuleDetailsComponent} from 'app/rules/rule-details/rule-details.component';
-import {RoutingManagementComponent} from 'app/routing';
-import {RoutingActionsComponent} from 'app/routing/routing-actions/routing-actions.component';
-import {RoutingDetailsComponent} from 'app/routing/routing-details/routing-details.component';
-import {ActionDetailsComponent} from 'app/routing/action-details/action-details.component';
+import { RuleDetailsComponent, RulesManagementComponent } from './rules';
+import { RoutingDetailsComponent } from './routing/routing-details/routing-details.component';
+import { ActionDetailsComponent } from './routing/action-details/action-details.component';
+import { RoutingManagementComponent } from './routing';
+import { RoutingActionsComponent } from './routing/routing-actions/routing-actions.component';
 
 const mainRoutes: Routes = [
     {path: 'ruleDetails/:id', component: RuleDetailsComponent},

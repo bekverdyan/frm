@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import 'datatables.net';
 import {Router} from '@angular/router';
-import {KawaAdapterService} from 'app/shared/layouts/kawa/kawa-adapter.service';
-import {NavigationService} from 'app/shared/navigation/navigation.service';
-import {RoutingRepository} from 'app/routing/dto/routing-repository';
-import {ActionContext, ActionEntry} from 'app/routing';
+import { ActionEntry } from '../model/action-entry';
+import { RoutingRepository } from '../dto/routing-repository';
+import { ActionContext } from '../model/action-context';
+import { NavigationService } from '../../shared/navigation/navigation.service';
+import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.service';
 
 @Component({
     selector: 'jhi-routing-actions',

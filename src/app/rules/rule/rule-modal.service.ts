@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { RuleModalComponent } from 'app/rules';
-import { RuleDeploymentModalComponent } from 'app/rules/rule-details/deployment/rule-deployment-modal.component';
+import { RuleModalComponent } from './rule-modal.component';
+import { RuleDeploymentModalComponent } from '../rule-details/deployment/rule-deployment-modal.component';
 
 @Injectable({
     providedIn: 'root'

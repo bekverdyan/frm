@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
-import {KawaAdapterService} from 'app/shared/layouts/kawa/kawa-adapter.service';
-import {ActionContext, ActionEntry} from 'app/routing';
-import {RoutingRepository} from 'app/routing/dto/routing-repository';
-import {SearchRoutingItem} from 'app/routing/routing-details/search-routing-item';
-import {SearchActionItem} from 'app/routing/action-details/search-action-item';
+import { ActionEntry } from '../model/action-entry';
+import { ActionContext } from '../model/action-context';
+import { RoutingRepository } from '../dto/routing-repository';
+import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.service';
+import { SearchActionItem } from './search-action-item';
 
 @Component({
     selector: 'jhi-action-details',

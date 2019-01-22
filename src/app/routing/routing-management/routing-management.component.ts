@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { RulesRepository } from 'app/rules';
-import { DomainEntry } from 'app/rules/model/domain-entry';
 import 'datatables.net';
 import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { KawaAdapterService } from 'app/shared/layouts/kawa/kawa-adapter.service';
-import { NavigationService } from 'app/shared/navigation/navigation.service';
-import { RoutingRepository } from 'app/routing/dto/routing-repository';
-import { RoutingContext, RoutingEntry } from 'app/routing';
+import { RoutingEntry } from '../model/routing-entry';
+import { DomainEntry } from '../../rules/model/domain-entry';
+import { RoutingRepository } from '../dto/routing-repository';
+import { RulesRepository } from '../../rules';
+import { RoutingContext } from '../model/routing-context';
+import { NavigationService } from '../../shared/navigation/navigation.service';
+import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.service';
 
 @Component({
     selector: 'jhi-routing-management',

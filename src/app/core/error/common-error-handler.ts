@@ -1,8 +1,8 @@
 import { Observable, of } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-import { MessageType } from 'app/rules/message-dialog/message-type.enum';
-import { MessageService } from 'app/rules/message-dialog/message.service';
 import { Injectable } from '@angular/core';
+import { MessageService } from '../../rules/message-dialog/message.service';
+import { MessageType } from '../../rules/message-dialog/message-type.enum';
 
 /**
  * Common error handling class. This class may have multiple error handling methods each of them treat the error

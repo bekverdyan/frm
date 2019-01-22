@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RulesRepository } from 'app/rules/dto/rules-repository';
-import { RuleActionEntry, RuleEntry, RuleVersionEntry, SearchRuleItem } from 'app/rules';
 import { Location } from '@angular/common';
-import { KawaAdapterService } from 'app/shared/layouts/kawa/kawa-adapter.service';
-import { RuleContext } from 'app/rules/model/rule-context';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { RuleDeploymentModalComponent } from 'app/rules/rule-details/deployment/rule-deployment-modal.component';
-import { RuleVersionModalComponent } from 'app/rules/rule-details/version/rule-version-modal.component';
-import { RuleUndeployModalComponent } from 'app/rules/rule-details/undeploy/rule-undeploy-modal.component';
-import { RuleStatus } from 'app/rules/rule/rule-status.enum';
+import { RuleEntry } from '../model/rule-entry';
+import { RuleVersionEntry } from '../model/rule-version-entry';
+import { RuleActionEntry } from '../model/rule-action-entry';
+import { RuleContext } from '../model/rule-context';
+import { RulesRepository } from '../dto/rules-repository';
+import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.service';
+import { RuleDeploymentModalComponent } from './deployment/rule-deployment-modal.component';
+import { RuleVersionModalComponent } from './version/rule-version-modal.component';
+import { RuleUndeployModalComponent } from './undeploy/rule-undeploy-modal.component';
+import { RuleStatus } from '../rule/rule-status.enum';
+import { SearchRuleItem } from './search-rule-item';
 
 @Component({
     selector: 'jhi-rule-details',

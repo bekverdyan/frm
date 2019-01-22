@@ -1,31 +1,29 @@
-import './vendor.ts';
+import '../vendor.ts';
 
 import { Injector, NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Ng2Webstorage } from 'ngx-webstorage';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 import { JhiEventManager } from 'ng-jhipster';
 import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
 import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
-import { FindLanguageFromKeyPipe, FrmSharedModule } from 'app/shared';
-import { FrmCoreModule } from 'app/core';
 import { FrmAppRoutingModule } from './app-routing.module';
 import { FrmAccountModule } from './account/account.module';
-import { StateStorageService } from 'app/core/auth/state-storage.service';
-// jhipster-needle-angular-add-module-import JHipster will add new module here
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ErrorComponent, PageRibbonComponent } from './shared/layouts';
 import { RouterModule } from '@angular/router';
-import { RulesModule } from 'app/rules/rules.module';
-import { LayoutModule } from 'app/shared/layouts/layout.module';
-import { MainBaseComponent } from 'app/shared/layouts/main/main-base.component';
-import { RoutingModule } from 'app/routing/routing.module';
+import { FrmSharedModule, FindLanguageFromKeyPipe } from './shared';
+import { FrmCoreModule, StateStorageService } from './core';
+import { LayoutModule } from './shared/layouts/layout.module';
+import { RulesModule } from './rules/rules.module';
+import { RoutingModule } from './routing/routing.module';
+import { MainBaseComponent } from './shared/layouts/main/main-base.component';
 
 @NgModule({
     imports: [
         RouterModule,
         FrmAppRoutingModule,
-        Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-' }),
+        NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-' }),
         FrmSharedModule,
         FrmCoreModule,
         FrmAccountModule,

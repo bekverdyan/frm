@@ -1,4 +1,3 @@
-import {ActionEntry} from 'app/routing';
 
 export class RoutingEntry {
     routingConfId: string;

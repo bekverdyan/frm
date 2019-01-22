@@ -1,10 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
-import {KawaAdapterService} from 'app/shared/layouts/kawa/kawa-adapter.service';
-import {ActionEntry, RoutingContext, RoutingEntry} from 'app/routing';
-import {RoutingRepository} from 'app/routing/dto/routing-repository';
-import {SearchRoutingItem} from 'app/routing/routing-details/search-routing-item';
+import { ActionEntry } from '../model/action-entry';
+import { RoutingEntry } from '../model/routing-entry';
+import { RoutingContext } from '../model/routing-context';
+import { RoutingRepository } from '../dto/routing-repository';
+import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.service';
+import { SearchRoutingItem } from './search-routing-item';
 
 @Component({
     selector: 'jhi-routing-details',
@@ -42,7 +44,8 @@ export class RoutingDetailsComponent implements OnInit {
         this.routingRepo.retrieveRoutingActions().subscribe(availableRoutingActions => {
             this.allRoutingActions = availableRoutingActions;
 
-            this.foreignActions = availableRoutingActions.filter(value => -1 === existingActions.findIndex(e => e.actionsName === value.name));
+            this.foreignActions = availableRoutingActions.filter(
+                value => -1 === existingActions.findIndex(e => e.actionsName === value.name));
         });
 
     }

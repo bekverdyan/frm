@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {RoutingEntry} from 'app/routing';
+import { RoutingEntry } from './routing-entry';
 
 @Injectable({providedIn: 'root'})
 export class RoutingContext {

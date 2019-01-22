@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationService } from 'app/shared/navigation/navigation.service';
+import { NavigationService } from '../../navigation/navigation.service';
 
 @Component({
     selector: 'jhi-landing',

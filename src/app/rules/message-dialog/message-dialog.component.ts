@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Message } from 'app/rules/message-dialog/message';
+import { Message } from './message';
 
 /**
  * A common Modal Dialog Box component to be used for all messages which should be shown to users.
@@ -20,7 +20,7 @@ import { Message } from 'app/rules/message-dialog/message';
 @Component({
     selector: 'jhi-message-dialog',
     templateUrl: './message-dialog.component.html',
-    styleUrls: ['./message-dialog.component.css', '../../../../../../node_modules/font-awesome/css/font-awesome.css']
+    styleUrls: ['./message-dialog.component.css', '../../../../node_modules/font-awesome/css/font-awesome.css']
 })
 export class MessageDialogComponent implements OnInit {
     // Modal dialog title text injected from outside

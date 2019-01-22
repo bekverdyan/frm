@@ -1,12 +1,15 @@
-import { FrmRulesAware, RuleActionEntry, RuleEntry, RuleVersionEntry } from 'app/rules';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
-import { SERVER_API_URL } from 'app/app.constants';
-import { DomainEntry } from 'app/rules/model/domain-entry';
 import { catchError, tap } from 'rxjs/operators';
-import { MessageService } from 'app/rules/message-dialog/message.service';
-import { CommonErrorHandler } from 'app/core/error/common-error-handler';
+import { FrmRulesAware } from '../api/interfaces';
+import { MessageService } from '../message-dialog/message.service';
+import { CommonErrorHandler } from '../../core/error/common-error-handler';
+import { DomainEntry } from '../model/domain-entry';
+import { SERVER_API_URL } from '../../app.constants';
+import { RuleEntry } from '../model/rule-entry';
+import { RuleVersionEntry } from '../model/rule-version-entry';
+import { RuleActionEntry } from '../model/rule-action-entry';
 
 @Injectable({ providedIn: 'root' })
 export class RulesRepository implements FrmRulesAware {
@@ -51,7 +54,8 @@ export class RulesRepository implements FrmRulesAware {
             .get<RuleActionEntry[]>(SERVER_API_URL + 'api/actions', { params: params })
             .pipe(
                 tap(_ => console.log('RulesRepository => retrieveRuleActions')),
-                catchError(this.commonErrorHandler.handleError<RuleActionEntry[]>('Something went wrong while getting rule actions list.', []))
+                catchError(this.commonErrorHandler.handleError<RuleActionEntry[]>(
+                    'Something went wrong while getting rule actions list.', []))
             );
     }
 

@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
-import { RoutingEntry } from 'app/routing/model/routing-entry';
-import { ActionEntry } from 'app/routing';
+import { RoutingEntry } from '../model/routing-entry';
+import { ActionEntry } from '../model/action-entry';
 
 export interface FrmRoutingConfigsAware {
     getRoutingConfig(id: number): Observable<RoutingEntry>;

@@ -1,4 +1,4 @@
-import {MessageType} from 'app/rules/message-dialog/message-type.enum';
+import { MessageType } from './message-type.enum';
 
 /**
  * Message model class. Every message contains its type and text

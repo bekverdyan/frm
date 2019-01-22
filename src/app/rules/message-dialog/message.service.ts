@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { MessageDialogComponent } from 'app/rules/message-dialog/message-dialog.component';
-import { MessageType } from 'app/rules/message-dialog/message-type.enum';
-import { Message } from 'app/rules/message-dialog/message';
+import { Message } from './message';
+import { MessageType } from './message-type.enum';
+import { MessageDialogComponent } from './message-dialog.component';
 
 /**
  * This service is responsible for showing Message Box dialogs. Message Box dialogs
