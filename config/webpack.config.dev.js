@@ -4,32 +4,12 @@ const webpackMerge = require('webpack-merge');
 
 const commonConfig = require('./webpack.config.common');
 const helpers      = require('./helpers');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = webpackMerge(commonConfig, {
     mode: 'development',
 
     devtool: 'cheap-module-eval-source-map',
-
-    devServer: {
-        // contentBase: './target/www',
-        proxy: [{
-            context: [
-                /* jhipster-needle-add-entity-to-webpack - JHipster will add entity api paths here */
-                '/api',
-                '/management',
-                '/v2/api-docs',
-                '/h2-console',
-                '/auth'
-            ],
-            target: 'http://127.0.0.1:8080',
-            secure: false,
-            headers: { host: 'localhost:9000' }
-        }],
-        // stats: options.stats,
-        watchOptions: {
-            ignored: /node_modules/
-        }
-    },
 
     output: {
         path: helpers.root('dist'),
@@ -63,7 +43,31 @@ module.exports = webpackMerge(commonConfig, {
     },
 
     devServer: {
+        proxy: [{
+            context: [
+                '/api',
+                '/management',
+                '/v2/api-docs',
+                '/h2-console',
+                '/auth'
+            ],
+            target: 'http://127.0.0.1:8080',
+            secure: false,
+            headers: { host: 'localhost:9000' }
+        }],
         historyApiFallback: true,
         stats: 'minimal'
-    }
+    },
+ 
+    plugins: [
+        new BrowserSyncPlugin({
+            host: 'localhost',
+            port: 9000,
+            proxy: {
+                target: 'http://localhost:9060'
+            }
+        }, {
+            reload: false
+        })
+    ]
 });
