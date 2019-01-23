@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import 'datatables.net';
 import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { RoutingEntry, RoutingContext } from '..';
-import { DomainEntry } from 'src/app/rules/model/domain-entry';
+import { RoutingEntry } from '../model/routing-entry';
+import { DomainEntry } from '../../rules/model/domain-entry';
 import { RoutingRepository } from '../dto/routing-repository';
+import { RulesRepository } from '../../rules';
+import { RoutingContext } from '../model/routing-context';
 import { NavigationService } from '../../shared/navigation/navigation.service';
-import { RulesRepository } from '../../rules/dto/rules-repository';
 import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.service';
 
 @Component({
@@ -17,7 +18,6 @@ import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.servi
 export class RoutingManagementComponent implements OnInit {
     availableRoutings: RoutingEntry[];
     domains: DomainEntry[];
-    modalRef: NgbModalRef;
     listMode: boolean;
     usageFilter: string;
     moduleTable: any;
@@ -64,8 +64,7 @@ export class RoutingManagementComponent implements OnInit {
         this.listMode = false;
         this.context.setModel(this.moduleTable);
         this.context.setTarget(entry);
-        this.context.print();
-        // this.router.navigate(['/ruleDetails', entry.pmoduleId]);
+        this.router.navigate(['/routingDetails', entry.routingConfId]);
     }
 
     createRoutingConfig() {

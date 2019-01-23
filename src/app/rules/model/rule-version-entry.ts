@@ -1,6 +1,5 @@
 export class RuleVersionEntry {
     pmoduleVersionId: string;
-    // mandatory ?
     pmoduleVersionNumber: string;
     pmoduleVersionArtefactLocation: string;
     pmoduleVersionArtefactContent: string;
@@ -8,7 +7,6 @@ export class RuleVersionEntry {
     pmoduleVersionCreated: string;
     createdDateAsText: string;
     createdTimeAsText: string;
-    // mandatory
     pmoduleVersionCreatedBy: string;
     pmoduleVersionDeploymentsEnabled: boolean;
     pmoduleVersionDeployedOnDomains: boolean;

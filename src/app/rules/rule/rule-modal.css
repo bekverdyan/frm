@@ -1,0 +1,7 @@
+.form-control.validation-field.ng-touched {
+    border: 1px solid red;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+}

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { RuleEntry } from '../../model/rule-entry';
+import { RuleContext } from '../../model/rule-context';
+import { RulesRepository } from '../../dto/rules-repository';
 import { KawaAdapterService } from '../../../shared/layouts/kawa/kawa-adapter.service';
-import { RuleContext, RuleEntry, RulesRepository } from '../..';
 
 @Component({
     selector: 'jhi-rule-undeploy',

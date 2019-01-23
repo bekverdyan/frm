@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import 'datatables.net';
 import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import 'datatables.net';
-import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.service';
-import { NavigationService } from '../../shared/navigation/navigation.service';
-import { RuleEntry } from '..';
-import { RulesRepository } from '../dto/rules-repository';
+import { RuleEntry } from '../model/rule-entry';
 import { DomainEntry } from '../model/domain-entry';
+import { RulesRepository } from '../dto/rules-repository';
 import { RuleContext } from '../model/rule-context';
 import { RuleModalService } from '../rule/rule-modal.service';
+import { NavigationService } from '../../shared/navigation/navigation.service';
+import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.service';
 
 @Component({
     selector: 'jhi-rules-management',
