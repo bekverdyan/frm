@@ -48,7 +48,6 @@
     "@angular/language-service": "~7.1.0",
     "@fortawesome/angular-fontawesome": "^0.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
-    "@ngtools/webpack": "~7.0",
     "@nguniversal/express-engine": "^7.0.2",
     "@types/core-js": "~2.5",
     "@types/jasmine": "~2.8.8",
