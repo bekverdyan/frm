@@ -44,7 +44,7 @@ export class RuleVersionModalComponent implements OnInit {
         this.activeModal.dismiss('cancel');
     }
 
-    submit(alsoSubmit: boolean) {
+    submit(alsoSubmit?: boolean) {
         this.ruleRepository.createVersion(this.toPmoduleVersion()).subscribe(
             () => {
                 console.log('successfully created pmodule version');
