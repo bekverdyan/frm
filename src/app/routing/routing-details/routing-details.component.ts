@@ -9,7 +9,7 @@ import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.servi
 import { SearchRoutingItem } from './search-routing-item';
 
 @Component({
-    selector: 'jhi-routing-details',
+    selector: 'app-routing-details',
     templateUrl: './routing-details.component.html',
     styleUrls: ['./details.component.css']
 })

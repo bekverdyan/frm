@@ -11,7 +11,7 @@ import { NavigationService } from '../../shared/navigation/navigation.service';
 import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.service';
 
 @Component({
-    selector: 'jhi-rules-management',
+    selector: 'app-rules-management',
     templateUrl: './rules-management.component.html',
     styleUrls: ['./management.component.css']
 })
