@@ -11,7 +11,7 @@ import { NavigationService } from '../../shared/navigation/navigation.service';
 import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.service';
 
 @Component({
-    selector: 'jhi-routing-management',
+    selector: 'app-routing-management',
     templateUrl: './routing-management.component.html',
     styleUrls: ['./routing.component.css']
 })

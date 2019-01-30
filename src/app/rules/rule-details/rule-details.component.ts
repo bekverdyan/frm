@@ -15,7 +15,7 @@ import { RuleStatus } from '../rule/rule-status.enum';
 import { SearchRuleItem } from './search-rule-item';
 
 @Component({
-    selector: 'jhi-rule-details',
+    selector: 'app-rule-details',
     templateUrl: './rule-details.component.html',
     styleUrls: ['./details.component.css']
 })

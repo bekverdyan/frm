@@ -8,7 +8,7 @@ import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.servi
 import { SearchActionItem } from './search-action-item';
 
 @Component({
-    selector: 'jhi-action-details',
+    selector: 'app-action-details',
     templateUrl: './action-details.component.html',
     styleUrls: ['./details.component.css']
 })

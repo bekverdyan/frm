@@ -7,7 +7,7 @@ import { NavigationService } from '../../shared/navigation/navigation.service';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
-    selector: 'jhi-rule',
+    selector: 'app-rule',
     templateUrl: './rule-modal.component.html',
     styleUrls: ['./rule-modal.css']
 })

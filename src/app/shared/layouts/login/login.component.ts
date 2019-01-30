@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Principal, StateStorageService, LoginService } from '../../../core';
 
 @Component({
-    selector: 'jhi-login',
+    selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.css']
 })

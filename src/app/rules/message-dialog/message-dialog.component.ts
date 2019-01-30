@@ -18,7 +18,7 @@ import { Message } from './message';
  */
 
 @Component({
-    selector: 'jhi-message-dialog',
+    selector: 'app-message-dialog',
     templateUrl: './message-dialog.component.html',
     styleUrls: ['./message-dialog.component.css', '../../../../node_modules/font-awesome/css/font-awesome.css']
 })

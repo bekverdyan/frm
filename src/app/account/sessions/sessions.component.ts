@@ -5,7 +5,7 @@ import { SessionsService } from './sessions.service';
 import { Principal } from '../../core';
 
 @Component({
-    selector: 'jhi-sessions',
+    selector: 'app-sessions',
     templateUrl: './sessions.component.html'
 })
 export class SessionsComponent implements OnInit {

@@ -7,7 +7,7 @@ import { RulesRepository } from '../../dto/rules-repository';
 import { KawaAdapterService } from '../../../shared/layouts/kawa/kawa-adapter.service';
 
 @Component({
-    selector: 'jhi-rule-undeploy',
+    selector: 'app-rule-undeploy',
     templateUrl: './rule-undeploy-modal.component.html',
     styleUrls: ['./undeploy.component.css']
 })

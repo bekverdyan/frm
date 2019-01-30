@@ -8,7 +8,7 @@ import { NavigationService } from '../../shared/navigation/navigation.service';
 import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.service';
 
 @Component({
-    selector: 'jhi-routing-actions',
+    selector: 'app-routing-actions',
     templateUrl: './routing-actions.component.html',
     styleUrls: ['./actions.component.css']
 })
