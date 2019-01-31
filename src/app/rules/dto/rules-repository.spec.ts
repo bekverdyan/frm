@@ -6,7 +6,7 @@ import { RuleEntry } from '../model/rule-entry';
 
 describe('RulesRepository', () => {
   let rulesRepository: RulesRepository;
-  let httpMock: HttpTestingController;
+  const httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({

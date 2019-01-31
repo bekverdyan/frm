@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, ElementRef, OnInit, Renderer } from '@angular/core';
-import { JhiEventManager } from 'ng-jhipster';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
-import { Principal, StateStorageService, LoginService } from '../../../core';
+import { JhiEventManager } from 'ng-jhipster';
+import { LoginService, Principal, StateStorageService } from '../../../core';
 
 @Component({
     selector: 'app-login',
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
         private principal: Principal,
         private eventManager: JhiEventManager,
         private elementRef: ElementRef,
-        private renderer: Renderer,
+        private renderer: Renderer2,
         private router: Router,
         private stateStorageService: StateStorageService,
         private loginService: LoginService
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        this.renderer.invokeElementMethod(this.elementRef.nativeElement.querySelector('#username'), 'focus', []);
+        this.renderer.selectRootElement('#username').focus();
     }
 
     registerAuthenticationSuccess() {

@@ -1,10 +1,10 @@
-import { AfterViewInit, Component, ElementRef, Renderer } from '@angular/core';
-import { JhiEventManager } from 'ng-jhipster';
+import { AfterViewInit, Component, ElementRef, Renderer2 } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { JhiEventManager } from 'ng-jhipster';
 import { RulesRepository } from '../../rules/dto/rules-repository';
 import { NavigationService } from '../../shared/navigation/navigation.service';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
     selector: 'app-rule',
@@ -30,7 +30,7 @@ export class RuleModalComponent implements AfterViewInit {
         private eventManager: JhiEventManager,
         private rulesRepository: RulesRepository,
         private elementRef: ElementRef,
-        private renderer: Renderer,
+        private renderer: Renderer2,
         private router: Router,
         private navService: NavigationService,
         private formbuilder: FormBuilder,
@@ -58,7 +58,7 @@ export class RuleModalComponent implements AfterViewInit {
     }
 
     ngAfterViewInit() {
-        this.renderer.invokeElementMethod(this.elementRef.nativeElement.querySelector('#name'), 'focus', []);
+        this.renderer.selectRootElement('#name').focus();
     }
 
     cancel() {

@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavigationService } from '../../navigation/navigation.service';
 import { Principal } from '../../../core';
+import { NavigationService } from '../../navigation/navigation.service';
 
 @Component({
     selector: 'app-main',
@@ -19,12 +19,12 @@ export class MainBaseComponent implements OnInit, AfterViewInit, OnDestroy {
         private navService: NavigationService,
         private principal: Principal,
         private elementRef: ElementRef,
-        private renderer: Renderer
+        private renderer: Renderer2
     ) {}
 
     ngAfterViewInit(): void {
         if (!this.isAuthenticated()) {
-            this.renderer.invokeElementMethod(this.elementRef.nativeElement.querySelector('#username'), 'focus', []);
+            this.renderer.selectRootElement('#username').focus();
         }
     }
 

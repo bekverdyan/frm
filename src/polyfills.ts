@@ -85,6 +85,9 @@ import 'core-js/es6';
 import 'core-js/es7/reflect';
 require('zone.js/dist/zone');
 
+import * as process from 'process';
+window['process'] = process;
+
 if (process.env.ENV === 'production') {
     // Production
 } else {
@@ -92,9 +95,6 @@ if (process.env.ENV === 'production') {
     Error['stackTraceLimit'] = Infinity;
     require('zone.js/dist/long-stack-trace-zone');
 }
-
-import * as process from 'process';
-window['process'] = process;
 
 
 /***************************************************************************************************
