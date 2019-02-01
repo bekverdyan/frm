@@ -31,7 +31,7 @@ module.exports = function (config) {
      * we are building the test environment in ./spec-bundle.js
      */
     files: [
-      { pattern: '../config/spec-bundle.js', watched: false },
+      { pattern: './config/spec-bundle.js', watched: false },
     ],
     plugins: [
       require('karma-jasmine'),
@@ -54,7 +54,7 @@ module.exports = function (config) {
     /**
      * Webpack Config at ./webpack.test.js
      */
-    webpack: require('./webpack.test.config.js'),
+    webpack: require('../webpack.test.config.js'),
 
     coverageReporter: {
       type: 'in-memory'
