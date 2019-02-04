@@ -18,6 +18,8 @@ import { LayoutModule } from './shared/layouts/layout.module';
 import { RulesModule } from './rules/rules.module';
 import { RoutingModule } from './routing/routing.module';
 import { MainBaseComponent } from './shared/layouts/main/main-base.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
     imports: [
@@ -30,7 +32,10 @@ import { MainBaseComponent } from './shared/layouts/main/main-base.component';
         LayoutModule,
         RulesModule,
         RoutingModule,
-        FontAwesomeModule
+        FontAwesomeModule,
+        HttpClientInMemoryWebApiModule.forRoot(
+            InMemoryDataService, { dataEncapsulation: false }
+        )
     ],
     declarations: [ErrorComponent, PageRibbonComponent, FindLanguageFromKeyPipe],
     providers: [
