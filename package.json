@@ -53,6 +53,7 @@
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
+    "angular-in-memory-web-api": "^0.8.0",
     "angular-router-loader": "~0.8",
     "angular2-template-loader": "~0.6",
     "awesome-typescript-loader": "~5.2",
