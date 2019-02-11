@@ -1,14 +1,11 @@
 export class RuleActionEntry {
     id: string;
-    // mandatory
     created: string;
-    // mandatory
     createdBy: string;
     onDomainName: string;
     onModuleName: string;
     onModuleUsage: string;
     onModuleVersion: string;
-    // mandatory
     action: string;
     message: string;
     data: string;

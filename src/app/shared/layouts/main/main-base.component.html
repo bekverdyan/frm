@@ -4,12 +4,12 @@
 
         <div [ngSwitch]="isWelcomeState">
             <div *ngSwitchCase="true">
-                <jhi-landing></jhi-landing>
+                <app-landing></app-landing>
             </div>
 
             <div *ngSwitchCase="false">
                 <div id="container">
-                    <jhi-header></jhi-header>
+                    <app-header></app-header>
 
                     <nav role="navigation">
                         <div class="mainNav" role="navigation">
@@ -52,6 +52,6 @@
     </div>
 
     <div *ngSwitchCase="false">
-        <jhi-login></jhi-login>
+        <app-login></app-login>
     </div>
 </div>

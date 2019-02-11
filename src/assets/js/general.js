@@ -1,5 +1,5 @@
 console.log('general.js loaded...');
-(function () {
+(function ($) {
     'use strict';
 
     $(document).ready(function () {

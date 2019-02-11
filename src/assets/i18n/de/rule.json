@@ -1,0 +1,13 @@
+{
+    "rule": {
+        "form": {
+            "name": "Name",
+            "usage": "Usage",
+            "type": "Type"
+        },
+        "buttons": {
+            "next": "Next",
+            "cancel": "Cancel"
+        }
+    }
+}

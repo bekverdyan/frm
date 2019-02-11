@@ -93,10 +93,10 @@ if (process.env.ENV === 'production') {
     require('zone.js/dist/long-stack-trace-zone');
 }
 
-import * as process from 'process';
-window['process'] = process;
-
 
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+import * as process from 'process';
+window['process'] = process;
