@@ -70,8 +70,8 @@ module.exports = {
         new MergeJsonWebpackPlugin({
             output: {
                 groupBy: [
-                    { pattern: "./src/i18n/en/*.json", fileName: "./i18n/en.json" },
-                    { pattern: "./src/i18n/de/*.json", fileName: "./i18n/de.json" }
+                    { pattern: "./src/assets/i18n/en/*.json", fileName: "./i18n/en.json" },
+                    { pattern: "./src/assets/i18n/de/*.json", fileName: "./i18n/de.json" }
                 ]
             }
         }),
