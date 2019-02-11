@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { RuleEntry } from './rule-entry';
+import { RuleEntry } from '..';
 
 @Injectable({ providedIn: 'root' })
 export class RuleContext {

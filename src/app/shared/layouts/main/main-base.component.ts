@@ -4,7 +4,7 @@ import { NavigationService } from '../../navigation/navigation.service';
 import { Principal } from '../../../core';
 
 @Component({
-    selector: 'app-main',
+    selector: 'jhi-main',
     templateUrl: './main-base.component.html',
     styleUrls: ['./main-base.component.css']
 })

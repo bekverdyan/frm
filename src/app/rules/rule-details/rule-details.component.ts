@@ -1,21 +1,15 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { RuleEntry } from '../model/rule-entry';
-import { RuleVersionEntry } from '../model/rule-version-entry';
-import { RuleActionEntry } from '../model/rule-action-entry';
-import { RuleContext } from '../model/rule-context';
-import { RulesRepository } from '../dto/rules-repository';
 import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.service';
+import { RuleActionEntry, RuleContext, RuleEntry, RulesRepository, RuleVersionEntry, SearchRuleItem } from '..';
 import { RuleDeploymentModalComponent } from './deployment/rule-deployment-modal.component';
-import { RuleVersionModalComponent } from './version/rule-version-modal.component';
 import { RuleUndeployModalComponent } from './undeploy/rule-undeploy-modal.component';
-import { RuleStatus } from '../rule/rule-status.enum';
-import { SearchRuleItem } from './search-rule-item';
+import { RuleVersionModalComponent } from './version/rule-version-modal.component';
 
 @Component({
-    selector: 'app-rule-details',
+    selector: 'jhi-rule-details',
     templateUrl: './rule-details.component.html',
     styleUrls: ['./details.component.css']
 })
@@ -143,12 +137,5 @@ export class RuleDetailsComponent implements OnInit {
 
     getVersionRowClass(version: RuleVersionEntry) {
         return version.pmoduleVersionDeployedOnDomains ? 'deployedVersion version-todfasdfolastip' : 'version-tooltip';
-    }
-
-    /**
-     * Returns true if the current rule is deployed, false otherwise.
-     */
-    isDeployed(): boolean {
-        return RuleStatus.Deployed.toUpperCase() === this.rule.pmoduleStatus.toUpperCase();
     }
 }

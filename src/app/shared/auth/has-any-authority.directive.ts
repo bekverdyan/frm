@@ -1,5 +1,5 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
-import { Principal } from '../../core';
+import { Principal } from '../../core/auth/principal.service';
 
 /**
  * @whatItDoes Conditionally includes an HTML element if current user has any
@@ -7,13 +7,13 @@ import { Principal } from '../../core';
  *
  * @howToUse
  * ```
- *     <some-element *appHasAnyAuthority="'ROLE_ADMIN'">...</some-element>
+ *     <some-element *jhiHasAnyAuthority="'ROLE_ADMIN'">...</some-element>
  *
- *     <some-element *appHasAnyAuthority="['ROLE_ADMIN', 'ROLE_USER']">...</some-element>
+ *     <some-element *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_USER']">...</some-element>
  * ```
  */
 @Directive({
-    selector: '[appHasAnyAuthority]'
+    selector: '[jhiHasAnyAuthority]'
 })
 export class HasAnyAuthorityDirective {
     private authorities: string[];
@@ -21,7 +21,7 @@ export class HasAnyAuthorityDirective {
     constructor(private principal: Principal, private templateRef: TemplateRef<any>, private viewContainerRef: ViewContainerRef) {}
 
     @Input()
-    set appHasAnyAuthority(value: string | string[]) {
+    set jhiHasAnyAuthority(value: string | string[]) {
         this.authorities = typeof value === 'string' ? [value] : value;
         this.updateView();
         // Get notified each time authentication state changes.

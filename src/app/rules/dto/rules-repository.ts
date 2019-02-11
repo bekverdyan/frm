@@ -1,81 +1,49 @@
+import { FrmRulesAware, RuleActionEntry, RuleEntry, RuleVersionEntry } from '..';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
-import { catchError, tap } from 'rxjs/operators';
-import { FrmRulesAware } from '../api/interfaces';
-import { MessageService } from '../message-dialog/message.service';
-import { CommonErrorHandler } from '../../core/error/common-error-handler';
 import { DomainEntry } from '../model/domain-entry';
 import { SERVER_API_URL } from '../../app.constants';
-import { RuleEntry } from '../model/rule-entry';
-import { RuleVersionEntry } from '../model/rule-version-entry';
-import { RuleActionEntry } from '../model/rule-action-entry';
 
 @Injectable({ providedIn: 'root' })
 export class RulesRepository implements FrmRulesAware {
-    constructor(private http: HttpClient, private messagService: MessageService, private commonErrorHandler: CommonErrorHandler) {}
+    constructor(private http: HttpClient) {}
 
     retrieveDomains(): Observable<DomainEntry[]> {
         const headers = new HttpHeaders().set('Accept', 'application/json');
-        return this.http
-            .get<DomainEntry[]>(SERVER_API_URL + '/api/domains', { headers })
-            .pipe(
-                tap(_ => console.log('RulesRepository => retrieveDomains')),
-                catchError(this.commonErrorHandler.handleError<DomainEntry[]>('Something went wrong while getting domains list.', []))
-            );
+        return this.http.get<DomainEntry[]>(SERVER_API_URL + '/api/domains', { headers });
     }
 
     retrieveRules(): Observable<RuleEntry[]> {
         const headers = new HttpHeaders().set('Accept', 'application/json');
-        return this.http
-            .get<RuleEntry[]>(SERVER_API_URL + '/api/rules', { headers })
-            .pipe(
-                tap(_ => console.log('RulesRepository => retrieveRules')),
-                catchError(this.commonErrorHandler.handleError<RuleEntry[]>('Something went wrong while getting rules list.', []))
-            );
+        return this.http.get<RuleEntry[]>(SERVER_API_URL + '/api/rules', { headers });
+    }
+
+    getRule(id: any): Observable<RuleEntry> {
+        let params = new HttpParams();
+        params = params.append('ruleId', id);
+        return this.http.get<RuleEntry>(SERVER_API_URL + 'api/createPmodule', { params: params });
     }
 
     retrieveRuleVersions(ruleId: string): Observable<RuleVersionEntry[]> {
         let params = new HttpParams();
         params = params.append('ruleId', ruleId);
-
-        return this.http
-            .get<RuleVersionEntry[]>(SERVER_API_URL + 'api/versions', { params: params })
-            .pipe(
-                tap(_ => console.log('RulesRepository => retrieveRuleVersions')),
-                catchError(this.commonErrorHandler.handleError<RuleVersionEntry[]>('Something went wrong while getting rule versions.', []))
-            );
+        return this.http.get<RuleVersionEntry[]>(SERVER_API_URL + 'api/versions', { params: params });
     }
 
     retrieveRuleActions(ruleId: string): Observable<RuleActionEntry[]> {
         let params = new HttpParams();
         params = params.append('ruleId', ruleId);
-        return this.http
-            .get<RuleActionEntry[]>(SERVER_API_URL + 'api/actions', { params: params })
-            .pipe(
-                tap(_ => console.log('RulesRepository => retrieveRuleActions')),
-                catchError(this.commonErrorHandler.handleError<RuleActionEntry[]>(
-                    'Something went wrong while getting rule actions list.', []))
-            );
+        return this.http.get<RuleActionEntry[]>(SERVER_API_URL + 'api/actions', { params: params });
     }
 
     createRule(rule: any): Observable<HttpResponse<any>> {
         const headers = new HttpHeaders().set('Accept', 'application/json');
-        return this.http
-            .post(SERVER_API_URL + 'api/createPmodule', rule, { observe: 'response' })
-            .pipe(
-                tap(_ => console.log('RulesRepository => createRule')),
-                catchError(this.commonErrorHandler.handleError<any>('Something went wrong while creating a rule.', null))
-            );
+        return this.http.post(SERVER_API_URL + 'api/createPmodule', rule, { observe: 'response' });
     }
 
     createVersion(versionMetaData: any): Observable<HttpResponse<any>> {
-        return this.http
-            .post(SERVER_API_URL + 'api/createPmoduleVersion', versionMetaData, { observe: 'response' })
-            .pipe(
-                tap(_ => console.log('RulesRepository => createVersion')),
-                catchError(this.commonErrorHandler.handleError<any>('Something went wrong while creating a rule version.', null))
-            );
+        return this.http.post(SERVER_API_URL + 'api/createPmoduleVersion', versionMetaData, { observe: 'response' });
     }
 
     deployPmodule(data: any): Observable<HttpResponse<any>> {
@@ -83,12 +51,6 @@ export class RulesRepository implements FrmRulesAware {
     }
 
     unDeployPmodule(pmoduleMetaData: any): Observable<HttpResponse<any>> {
-        return this.http
-            .post(SERVER_API_URL + 'api/unDeployPmodule', pmoduleMetaData, { observe: 'response' })
-            .pipe(
-                tap(_ => console.log('RulesRepository => unDeployPmodule')),
-                catchError(this.commonErrorHandler.handleError<any>('Something went wrong while un-deploying the PModule.', null))
-            );
+        return this.http.post(SERVER_API_URL + 'api/unDeployPmodule', pmoduleMetaData, { observe: 'response' });
     }
-
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationService } from '../../navigation/navigation.service';
 
 @Component({
-    selector: 'app-landing',
+    selector: 'jhi-landing',
     templateUrl: './landing.component.html',
     styleUrls: ['./welcome.css']
 })

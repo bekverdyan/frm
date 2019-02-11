@@ -1,19 +1,20 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import 'datatables.net';
-import {Router} from '@angular/router';
-import { ActionEntry } from '../model/action-entry';
+import { Router } from '@angular/router';
+import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { ActionEntry, ActionContext } from '..';
 import { RoutingRepository } from '../dto/routing-repository';
-import { ActionContext } from '../model/action-context';
 import { NavigationService } from '../../shared/navigation/navigation.service';
 import { KawaAdapterService } from '../../shared/layouts/kawa/kawa-adapter.service';
 
 @Component({
-    selector: 'app-routing-actions',
+    selector: 'jhi-routing-actions',
     templateUrl: './routing-actions.component.html',
     styleUrls: ['./actions.component.css']
 })
 export class RoutingActionsComponent implements OnInit {
     availableRoutingActions: ActionEntry[];
+    modalRef: NgbModalRef;
     listMode: boolean;
     usageFilter: string;
     moduleTable: any;
@@ -24,8 +25,7 @@ export class RoutingActionsComponent implements OnInit {
         private router: Router,
         private context: ActionContext,
         private navService: NavigationService
-    ) {
-    }
+    ) {}
 
     ngOnInit() {
         this.initCallBack();
@@ -39,7 +39,7 @@ export class RoutingActionsComponent implements OnInit {
         this.routingRepo.retrieveRoutingActions().subscribe(availableRoutingActions => {
             this.availableRoutingActions = availableRoutingActions;
 
-            KawaAdapterService.initDataTable('routingActionsTable').then(function (dt) {
+            KawaAdapterService.initDataTable('routingActionsTable').then(function(dt) {
                 self.moduleTable = dt;
             });
         });
@@ -57,7 +57,7 @@ export class RoutingActionsComponent implements OnInit {
         this.context.setModel(this.moduleTable);
         this.context.setTarget(entry);
         this.context.print();
-        this.router.navigate(['/actionDetails', entry.id]);
+        // this.router.navigate(['/ruleDetails', entry.pmoduleId]);
     }
 
     createRoutingAction() {

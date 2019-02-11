@@ -3,31 +3,26 @@
     <div class="modal-window">
         <div class="modal-head">
             <h3>Create new Module</h3>
-            <button aria-label="Close" data-dismiss="modal" class="close" type="button" (click)="activeModal.dismiss('closed')">
+            <button aria-label="Close" data-dismiss="modal" class="close" type="button"
+                    (click)="activeModal.dismiss('closed')">
                 <span aria-hidden="true">x</span>
             </button>
         </div>
 
         <div class="modal-content">
+
             <div [ngSwitch]="pmoduleCreated">
                 <div *ngSwitchCase="false">
-                    <form [formGroup]="stage1Form" role="stage1Form" (ngSubmit)="saveRule(stage1Form.value)">
+                    <form role="form" (ngSubmit)="saveRule()">
 
-                        <div class="form-group">
-                            <p>
-                                <label for="name">Name</label>
-                                <input [formControl]="name" class="form-control" [ngClass]="{'validation-field': stage1Form.get('name').hasError('required')}"
-                                    type="text" name="name" id="name" placeholder="name" required>
-                                <small class="text-danger" *ngIf="stage1Form.get('name').touched && stage1Form.get('name').hasError('required')">
-                                    <br />
-                                    This field is required
-                                </small>
-                            </p>
-                        </div>
+                        <p>
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" placeholder="name" [(ngModel)]="name" required>
+                        </p>
 
                         <p>
                             <label for="usage">Usage</label>
-                            <select [ngModel]="usage" name="usage" id="usage" [ngModelOptions]="{standalone: true}">
+                            <select [(ngModel)]="usage" name="usage" id="usage">
                                 <option value="DP">Data preparation</option>
                                 <option value="DH">Data historization</option>
                                 <option value="DA">Data aggregate</option>
@@ -40,24 +35,18 @@
 
                         <p>
                             <label for="type">Type</label>
-                            <select [ngModel]="type" name="type" id="type" [ngModelOptions]="{standalone: true}">
+                            <select [(ngModel)]="type" name="type" id="type">
                                 <option value="PYTHON">PYTHON</option>
                                 <option value="Java">Java</option>
                                 <option value="PMML">PMML</option>
                             </select>
                         </p>
 
-                        <div class="form-group">
-                            <p class="large">
-                                <label for="usageDescription">Usage</label>
-                                <textarea [formControl]="usageDescription" class="form-control" [ngClass]="{'validation-field': stage1Form.get('usageDescription').hasError('required')}"
-                                    rows="10" cols="1" id="usageDescription" name="usageDescription" required></textarea>
-                                <small class="text-danger" *ngIf="stage1Form.get('usageDescription').touched && stage1Form.get('usageDescription').hasError('required')">
-                                    <br />
-                                    This field is required
-                                </small>
-                            </p>
-                        </div>
+                        <p class="large">
+                            <label for="usageDescription">Usage</label>
+                            <textarea [(ngModel)]="usageDescription" rows="10" cols="1" id="usageDescription"
+                                      name="usageDescription"></textarea>
+                        </p>
 
                         <div class="button-bar">
                             <ul class="k-actions">
@@ -65,7 +54,7 @@
                                     <button (click)="cancel()" id="buttonCancel" class="btcancel">Cancel</button>
                                 </li>
                                 <li>
-                                    <button [disabled]="stage1Form.invalid" type="submit" id="buttonNext" class="btsubmit btnext">Next</button>
+                                    <button type="submit" id="buttonNext" class="btsubmit btnext">Next</button>
                                 </li>
                             </ul>
                         </div><!-- button-bar -->
@@ -73,28 +62,22 @@
                 </div>
 
                 <div *ngSwitchCase="true">
-                    <form [formGroup]="stage2Form" role="stage2Form" (ngSubmit)="savePmoduleVersion(false)">
+                    <form role="form" (ngSubmit)="savePmoduleVersion(false)">
 
-                        <div class="form-group">
-                            <h4>Details</h4>
-                            <p class="large">
-                                <label for="versionDescription">Description</label>
-                                <textarea [formControl]="versionDescription" class="form-control" [ngClass]="{'validation-field': stage2Form.get('versionDescription').hasError('required')}"
-                                    rows="10" cols="1" id="versionDescription" name="versionDescription" required></textarea>
-                                <small class="text-danger" *ngIf="stage2Form.get('versionDescription').touched && stage2Form.get('versionDescription').hasError('required')">
-                                    <br />
-                                    This field is required
-                                </small>
-                            </p>
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <span class="btn btn-default btn-file"><span>Upload file</span>
+                                    <input type="file" (change)="fileChanged($event)" name="content"
+                                           id="content">/</span>
+
+                            <span class="fileinput-filename"></span><span class="fileinput-new">{{getFileNameDescription()}}</span>
                         </div>
 
-                        <h4>Content</h4>
-                        <div class="form-group fileinput fileinput-new" data-provides="fileinput">
-                            <span class="btn btn-default btn-file"><span>Upload file</span>
-                                <input type="file" (change)="fileChanged($event)" name="content" id="content">/</span>
-                                <input type="hidden" name="fileHidden" formControlName="uploadableFile"/>
-                            <span class="fileinput-filename"></span><span class="fileinput-new">No file chosen</span>
-                        </div>
+                        <p class="large">
+                            <label for="versionDescription">Description</label>
+                            <textarea [(ngModel)]="versionDescription" rows="10" cols="1"
+                                      id="versionDescription"
+                                      name="versionDescription"></textarea>
+                        </p>
 
                         <div class="button-bar">
                             <ul class="k-actions">
@@ -102,10 +85,10 @@
                                     <button id="BtnCancelTwo" class="btcancel" (click)="cancel()">Cancel</button>
                                 </li>
                                 <li>
-                                    <button [disabled]="stage2Form.invalid" type="submit" id="BtnSaveRule" class="btsubmit btsavedeploy">Submit</button>
+                                    <button type="submit" id="BtnSaveRule" class="btsubmit btsavedeploy">Submit</button>
                                 </li>
                                 <li>
-                                    <button [disabled]="stage2Form.invalid" type="submit" id="BtnSaveDeploy" class="btsubmit btnext">Submit & Deploy
+                                    <button type="submit" id="BtnSaveDeploy" class="btsubmit btnext">Submit & Deploy
                                     </button>
                                 </li>
                             </ul>

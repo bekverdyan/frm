@@ -4,7 +4,7 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'app-alert-error',
+    selector: 'jhi-alert-error',
     template: `
         <div class="alerts" role="alert">
             <div *ngFor="let alert of alerts"  [ngClass]="{\'alert.position\': true, \'toast\': alert.toast}">

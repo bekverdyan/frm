@@ -37,9 +37,9 @@
                 <div id="hamburgerMenuIcon"><span><i class="fas fa-bars"></i></span></div>
                 <div id="hamburgerMenu">
                     <ul>
-                        <li id="newVersion" (click)="openCreateVersionModal()">New Version</li>
-                        <li id="redeploy" (click)="openDeployModal()">Redeploy</li>
-                        <li id="undeploy" [class.disabled]="!isDeployed()" (click)="isDeployed() && openUndeployModal()">Undeploy</li>
+                        <li (click)="openCreateVersionModal()" id="newVersion">New Version</li>
+                        <li (click)="openDeployModal()" id="redeploy">Redeploy</li>
+                        <li id="undeploy" (click)="openUndeployModal()">Undeploy</li>
                         <li><a href="routingConfiguration_filteredList.html">Routing Configuration</a></li>
                     </ul>
                 </div>
