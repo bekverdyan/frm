@@ -31,7 +31,7 @@ module.exports = webpackMerge(commonConfig, {
                     {
                         loader: 'awesome-typescript-loader',
                         options: {
-                            configFileName: helpers.root('src/tsconfig.app.json')
+                            configFileName: helpers.root('tsconfig.json')
                         }
                     },
                     'angular2-template-loader',

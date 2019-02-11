@@ -1,8 +1,11 @@
 export class RuleEntry {
     pmoduleId: string;
+    // mandatory
     pmoduleName: string;
     pmoduleDescription: string;
+    // mandatory
     pmoduleType: string;
+    // mandatory
     pmoduleUsage: string;
     pmoduleStatus: string;
     lastVersionNumber: string;

@@ -96,9 +96,26 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/componentCSS/app-root.component.css",
+              "src/assets/componentCSS/landing.component.css",
+              "src/assets/componentCSS/header.component.css",
+              "src/assets/css/k-theme0.css",
+              "src/assets/css/main_dev.css",
+              "src/assets/css/global.css"
             ],
             "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "src/assets/js/components/jquery.dataTables.min.js",
+              "src/assets/js/components/jquery.kawwa.collapsible.js",
+              "src/assets/js/components/jquery.kawwa.nav.js",
+              "src/assets/js/jquery-1.12.3.min.js",
+              "src/assets/js/components/jquery.kawwa.tabs.js",
+              "src/assets/js/callFunction.js",
+              "src/assets/js/jquery-2.1.3.js",
+              "src/assets/js/jquery-resizable.js",
+              "src/assets/js/general.js"
             ],
             "assets": [
               "src/favicon.ico",

@@ -2,29 +2,25 @@ import { AfterViewInit, Component, ElementRef, Renderer } from '@angular/core';
 import { JhiEventManager } from 'ng-jhipster';
 import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { RulesRepository } from '../../rules/dto/rules-repository';
+import { RulesRepository } from '../dto/rules-repository';
 import { NavigationService } from '../../shared/navigation/navigation.service';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
-    selector: 'app-rule',
+    selector: 'jhi-rule',
     templateUrl: './rule-modal.component.html',
     styleUrls: ['./rule-modal.css']
 })
 export class RuleModalComponent implements AfterViewInit {
-    versionDescription: AbstractControl;
-    uploadableFile: any;
+    name: string;
+    usage: string;
+    type: string;
+    usageDescription: string;
+    versionDescription: string;
+    content: any;
     error: string;
     success: string;
     pmoduleCreated: boolean;
-
-    stage1Form: FormGroup;
-    name: AbstractControl;
-    usage: string;
-    type: string;
-    usageDescription: AbstractControl;
-
-    stage2Form: FormGroup;
+    chosenFileName: string;
 
     constructor(
         private eventManager: JhiEventManager,
@@ -33,26 +29,9 @@ export class RuleModalComponent implements AfterViewInit {
         private renderer: Renderer,
         private router: Router,
         private navService: NavigationService,
-        private formbuilder: FormBuilder,
         public activeModal: NgbActiveModal
     ) {
         this.pmoduleCreated = false;
-        this.stage1Form = this.formbuilder.group({
-            name: ['', Validators.compose([Validators.required])],
-            usageDescription: ['', Validators.compose([Validators.required])]
-        });
-
-        this.name = this.stage1Form.controls['name'];
-        this.usageDescription = this.stage1Form.controls['usageDescription'];
-
-        this.stage2Form = this.formbuilder.group({
-            versionDescription: ['', Validators.compose([Validators.required])],
-            uploadableFile: ['', Validators.required]
-        });
-
-        this.versionDescription = this.stage2Form.controls['versionDescription'];
-        this.uploadableFile = this.stage2Form.controls['uploadableFile'];
-
         this.usage = 'RL';
         this.type = 'PYTHON';
     }
@@ -75,58 +54,39 @@ export class RuleModalComponent implements AfterViewInit {
     }
 
     savePmoduleVersion(deploy: boolean) {
-        Object.keys(this.stage2Form.controls).forEach(field => {
-            const control = this.stage2Form.get(field);
-            control.markAsTouched({
-                onlySelf: true
-            });
-        });
-
-        if (this.stage2Form.valid) {
-            this.rulesRepository.createVersion(this.toPmoduleVersion()).subscribe(
-                () => {
-                    console.log('successfully created pmodule version');
-                    this.error = null;
-                    this.success = 'OK';
-
-                    this.activeModal.dismiss('to the initial list');
-                },
-                () => {
-                    console.log('error on created pmodule version');
-                    this.success = null;
-                    this.error = 'ERROR';
-                }
-            );
-
-            if (!this.error) {
-                console.log('navigating to management');
-                this.navService.emitNavChangeEvent('management');
+        this.rulesRepository.createVersion(this.toPmoduleVersion()).subscribe(
+            () => {
+                console.log('successfully created pmodule version');
+                this.error = null;
+                this.success = 'OK';
+                this.activeModal.dismiss('to the initial list');
+            },
+            () => {
+                console.log('error on created pmodule version');
+                this.success = null;
+                this.error = 'ERROR';
             }
+        );
+
+        if (!this.error) {
+            console.log('navigating to management');
+            this.navService.emitNavChangeEvent('management');
         }
     }
 
-    saveRule(values: Object) {
-        Object.keys(this.stage1Form.controls).forEach(field => {
-            const control = this.stage1Form.get(field);
-            control.markAsTouched({
-                onlySelf: true
-            });
-        });
-
-        if (this.stage1Form.valid) {
-            this.rulesRepository.createRule(this.toPmoduleData()).subscribe(
-                () => {
-                    this.error = null;
-                    this.success = 'OK';
-                    this.pmoduleCreated = true;
-                },
-                () => {
-                    this.success = null;
-                    this.error = 'ERROR';
-                    this.pmoduleCreated = false;
-                }
-            );
-        }
+    saveRule() {
+        this.rulesRepository.createRule(this.toPmoduleData()).subscribe(
+            () => {
+                this.error = null;
+                this.success = 'OK';
+                this.pmoduleCreated = true;
+            },
+            () => {
+                this.success = null;
+                this.error = 'ERROR';
+                this.pmoduleCreated = false;
+            }
+        );
     }
 
     register() {
@@ -136,34 +96,34 @@ export class RuleModalComponent implements AfterViewInit {
 
     toPmoduleVersion() {
         return {
-            pmoduleName: this.name.value,
-            pmoduleVersionDescription: this.versionDescription.value,
-            pmoduleArtefactContent: this.uploadableFile.value
+            pmoduleName: this.name,
+            pmoduleVersionDescription: this.versionDescription,
+            pmoduleArtefactContent: this.content
         };
     }
 
     toPmoduleData() {
         return {
-            pmoduleName: this.name.value,
+            pmoduleName: this.name,
             pmoduleUsage: this.usage,
             pmoduleType: this.type,
-            pmoduleDescription: this.usageDescription.value
+            pmoduleDescription: this.usageDescription
         };
     }
 
     fileChanged(e) {
-        const reader = new FileReader();
+        this.content = e.target.files[0];
+        this.chosenFileName = e.target.files[0].name;
+        console.log('this content is: \n');
 
-        if (e.target.files && e.target.files.length) {
-            const [uploadableFile] = e.target.files;
-            this.stage2Form.controls['uploadableFile'].setValue(uploadableFile ? uploadableFile.name : '');
-            reader.readAsText(uploadableFile);
+        const fileReader = new FileReader();
+        fileReader.onload = () => {
+            this.content = fileReader.result;
+        };
+        fileReader.readAsText(this.content);
+    }
 
-            reader.onload = () => {
-                this.stage2Form.patchValue({
-                    uploadableFile: reader.result
-                });
-            };
-        }
+    getFileNameDescription() {
+        return this.chosenFileName ? this.chosenFileName : 'No file chosen';
     }
 }

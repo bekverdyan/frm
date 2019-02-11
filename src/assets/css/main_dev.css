@@ -222,11 +222,6 @@ h6 {
     background-color: #efefef;
 }
 
-/* Hamburger menu item disabling style */
-#hamburgerMenu ul li.disabled {
-    color: darkgray;
-}
-
 #hamburgerMenu a,
 #hamburgerMenu a:link,
 #hamburgerMenu a:visited,
@@ -273,11 +268,6 @@ button.btsubmit {
 }
 button.btsubmit:hover {
     background-color: #1a65a2;
-}
-button.btsubmit[disabled] {
-    color: white;
-    background-color: darkgray;
-    border-color: darkgray;
 }
 
 button.btsubmit.btcreate {

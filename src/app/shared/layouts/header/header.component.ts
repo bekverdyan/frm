@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Principal, LoginService } from '../../../core';
 
 @Component({
-    selector: 'app-header',
+    selector: 'jhi-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.css']
 })

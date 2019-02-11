@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import * as $ from 'jquery';
 
 @Injectable({
@@ -16,7 +16,8 @@ export class KawaAdapterService {
                 // @ts-ignore
                 elementId.focus();
                 // @ts-ignore
-                $(this).dialog('widget').remove();
+                $(this).dialog('widget')
+                    .remove();
             },
             autoOpen: false,
             describedBy: 'dialogDescription',
@@ -26,11 +27,11 @@ export class KawaAdapterService {
 
     static initHamburgerMenu() {
         console.log('initialising hamburger menu...');
-        $('#hamburgerMenuIcon span').on('click touch', function() {
+        $('#hamburgerMenuIcon span').on('click touch', function () {
             $('#hamburgerMenu').show();
         });
 
-        $(document).on('click touch', function(event) {
+        $(document).on('click touch', function (event) {
             if (
                 !$(event.target)
                     .parents()
@@ -41,7 +42,7 @@ export class KawaAdapterService {
             }
         });
 
-        $('#hamburgerMenu').on('click touch', function(event) {
+        $('#hamburgerMenu').on('click touch', function (event) {
             event.stopPropagation();
         });
     }
@@ -75,8 +76,8 @@ export class KawaAdapterService {
 
     static initDataTable(tableId: string): any {
         // workaround over dataTable initialisation
-        return new Promise(function(resolve, reject) {
-            window.setTimeout(function() {
+        return new Promise(function (resolve, reject) {
+            window.setTimeout(function () {
                 // @ts-ignore
                 const dt = $('#' + tableId).DataTable({
                     // @ts-ignore
@@ -107,5 +108,6 @@ export class KawaAdapterService {
         }
     }
 
-    constructor() {}
+    constructor() {
+    }
 }

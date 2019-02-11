@@ -2,10 +2,11 @@ import { Observable } from 'rxjs';
 import { HttpResponse } from '@angular/common/http';
 import { RuleEntry } from '../model/rule-entry';
 import { DomainEntry } from '../model/domain-entry';
-import { RuleVersionEntry } from '../model/rule-version-entry';
-import { RuleActionEntry } from '../model/rule-action-entry';
+import { RuleVersionEntry, RuleActionEntry } from '..';
 
 export interface FrmRulesAware {
+    getRule(id: number): Observable<RuleEntry>;
+
     retrieveRules(): Observable<RuleEntry[]>;
 
     retrieveDomains(): Observable<DomainEntry[]>;
