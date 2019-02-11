@@ -1,20 +1,20 @@
-import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
-import { AppRoutingModule } from 'src/app/app-routing.module';
-import { RoutingModule } from 'src/app/routing/routing.module';
-import { RulesModule } from 'src/app/rules/rules.module';
-import { NgbDateMomentAdapter } from 'src/app/shared';
-import { HeaderComponent } from './header/header.component';
+import { CommonModule } from '@angular/common';
+import { RulesModule } from '../../rules/rules.module';
+import { RoutingModule } from '../../routing/routing.module';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './header/header.component';
 import { MainBaseComponent } from './main/main-base.component';
+import { NgbDateMomentAdapter } from '../util/datepicker-adapter';
+import { FrmAppRoutingModule } from '../../app-routing.module';
 
 @NgModule({
-    imports: [RulesModule, RoutingModule, CommonModule, AppRoutingModule],
+    imports: [RulesModule, RoutingModule, CommonModule, FrmAppRoutingModule],
     declarations: [LandingComponent, LoginComponent, HeaderComponent, MainBaseComponent],
     providers: [{ provide: NgbDateAdapter, useClass: NgbDateMomentAdapter }],
-    exports: [AppRoutingModule],
+    exports: [FrmAppRoutingModule],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class LayoutModule {}

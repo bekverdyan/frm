@@ -1,10 +1,10 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer } from '@angular/core';
 import { JhiEventManager } from 'ng-jhipster';
 import { Router } from '@angular/router';
-import { Principal, StateStorageService, LoginService } from 'src/app/core';
+import { Principal, StateStorageService, LoginService } from '../../../core';
 
 @Component({
-    selector: 'jhi-login',
+    selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.css']
 })

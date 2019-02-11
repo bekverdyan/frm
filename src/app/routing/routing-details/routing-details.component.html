@@ -1,0 +1,108 @@
+<div class="splitPanel">
+    <div class="panel-container">
+
+        <div class="panel-left" style="width: 520px;">
+            <table class="k-data-table">
+                <thead>
+                <tr>
+                    <th>Domain Name</th>
+                    <th>Routing ID</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr class="{{searchEntry.isSelected ? 'highlightedEntry' :''}} gradeA"
+                    *ngFor="let searchEntry of getFilteredRoutingEntries()">
+                    <td>{{searchEntry.routingConfDomainName}}</td>
+                    <td>{{searchEntry.routingConfId}}</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+
+            <a (click)="goBack()"><i class="fas fa-arrow-alt-circle-left"></i></a>
+        </div><!-- split panel-left -->
+
+        <div class="splitter"></div>
+
+        <div class="panel-right" id="splitRoutingConf">
+            <div class="panelRightHeader">
+                <h3>{{routingEntry.routingConfDomainName}}</h3>
+                <div id="hamburgerMenuIcon">
+                    <span><i class="fas fa-bars"></i></span>
+                </div>
+            </div>
+
+            <div class="k-tabbed-data">
+                <ul class="tabs">
+                    <li><a href="#panel0">Details</a></li>
+                </ul>
+                <section id="panel0" class="content">
+                    <div class="leftDataContainer">
+                        <dl class="halfSize">
+                            <p>
+                                <label>Rule:</label>
+                                <input type="text" name="usage" value="{{routingEntry.routingConfRuleName}}" class="disabled" readonly>
+                            </p>
+                            <p>
+                                <label>Domain:</label>
+                                <input type="text" name="type" value="{{routingEntry.routingConfDomainName}}" class="disabled" readonly>
+                            </p>
+                        </dl>
+                        <dl class="halfSize">
+                            <p>
+                                <label>Routing ID:</label>
+                                <input type="text" name="type" value="{{routingEntry.routingConfId}}" class="disabled" readonly>
+                            </p>
+                            <p>
+                                <label>Business ID:</label>
+                                <input type="text" name="type" value="{{routingEntry.routingConfBusinessId}}" class="disabled" readonly>
+                            </p>
+                        </dl>
+                        <dl class="fullSize">
+                            <label>Rule Information:</label>
+                            <textarea disabled>{{routingEntry.routingConfRuleInfo}}</textarea>
+                        </dl>
+
+                        <div class="contentDataContainer">
+                            <h4>Assign Actions to Routing Configuration</h4>
+                            <div id="assignActionComponent">
+                                <h6>Available Actions</h6><h6>Assigned Actions</h6>
+                                <select class="assignAction" multiple="" size="6" tabindex="0" style="width: 45%;">
+                                    <option [ngValue]="routingAction.name" *ngFor="let routingAction of foreignActions">
+                                        {{routingAction.name}}
+                                    </option>
+                                </select>
+                                <div class="iconBarAssign">
+                                    <p class="angleRight"><i class="fas fa-angle-right"
+                                                             alt="Assign to routing configuration"></i></p>
+
+                                    <p class="angleLeft"><i class="fas fa-angle-left"
+                                                            alt="Remove from assigned action list"></i></p>
+                                </div>
+
+                                <select class="assignAction" multiple="" size="6" tabindex="0" style="width: 45%;">
+                                    <option [ngValue]="ownAction.actionsId" *ngFor="let ownAction of routingEntry.routingConfActions">
+                                        {{ownAction.actionsName}}
+                                    </option>
+                                </select>
+                            </div>
+
+                        </div><!-- contentDataContainer -->
+                    </div><!-- leftDataContainer -->
+                </section>
+            </div>
+            <!-- <a class="closeSplit">x</a> -->
+        </div><!-- split panel-right -->
+    </div><!-- panel-container -->
+
+
+    <div class="button-bar">
+        <ul class="k-actions">
+            <li>
+                <button href="routingConfiguration.html" id="safeRouting" class="btsubmit" role="button">Save</button>
+            </li>
+        </ul>
+    </div><!-- button-bar -->
+</div>

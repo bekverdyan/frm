@@ -1,12 +1,14 @@
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { KawaAdapterService } from 'src/app/shared/layouts/kawa/kawa-adapter.service';
-import { RuleContext, RuleEntry, RulesRepository } from '../..';
+import { RuleEntry } from '../../model/rule-entry';
+import { RuleContext } from '../../model/rule-context';
+import { RulesRepository } from '../../dto/rules-repository';
+import { KawaAdapterService } from '../../../shared/layouts/kawa/kawa-adapter.service';
 
 @Component({
-    selector: 'jhi-rule-version-undeploy',
+    selector: 'app-rule-version-undeploy',
     templateUrl: './rule-version-modal.component.html',
     styleUrls: ['./version.component.css']
 })
@@ -42,7 +44,7 @@ export class RuleVersionModalComponent implements OnInit {
         this.activeModal.dismiss('cancel');
     }
 
-    submit(alsoSubmit: boolean) {
+    submit(alsoSubmit?: boolean) {
         this.ruleRepository.createVersion(this.toPmoduleVersion()).subscribe(
             () => {
                 console.log('successfully created pmodule version');

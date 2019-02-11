@@ -1,10 +1,10 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavigationService } from '../../navigation/navigation.service';
-import { Principal } from 'src/app/core';
+import { Principal } from '../../../core';
 
 @Component({
-    selector: 'jhi-main',
+    selector: 'app-main',
     templateUrl: './main-base.component.html',
     styleUrls: ['./main-base.component.css']
 })
